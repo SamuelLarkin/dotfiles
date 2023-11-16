@@ -221,7 +221,7 @@
 
    " LSP
    " {
-     source ~/config/vim.lsp
+     source ~/.config/vim/lsp.vim
    " }
 
    " [ale](https://github.com/dense-analysis/ale)
