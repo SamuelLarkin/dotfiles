@@ -151,10 +151,10 @@
 
 [core]
    abbrev = 9
-   attributesfile = ~/config/config/git/attributes
+   attributesfile = ~/.config/git/attributes
    autocrlf     = input
    editor = vim
-   excludesfile = ~/.gitignore_global
+   excludesfile = ~/.config/git/gitignore_global
 
 [credential]
    helper = cache --timeout=3600
