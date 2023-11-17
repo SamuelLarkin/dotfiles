@@ -1,2 +1,2 @@
-"\C-g": forward-search-history
+#"\C-g": forward-search-history
 set bell-style none

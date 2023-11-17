@@ -88,4 +88,5 @@ which starship &> /dev/null && eval "$(starship init bash)"
 
 
 # Disabled since we prefer fzf's CTRL+R
+#shopt -q login_shell && bind '"\C-g": forward-search-history'
 #[[ $- == *i* ]] && bind '"\C-g": forward-search-history'
