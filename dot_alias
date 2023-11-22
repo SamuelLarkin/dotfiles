@@ -380,7 +380,11 @@ function xmldiff {
 
 
 function wc_stats {
-   ~/bin/wc_stats $@ | tac | expand-auto.pl -skip 3 | tac
+   # Make sure not to recursively invoke the alias.
+   # [Bash shadow a command - function with same name as command](https://unix.stackexchange.com/a/454554)
+   # You need command to reference the underlying builtin if you create a
+   # function with the same name
+   command wc_stats $@ | tac | expand-auto.pl -skip 3 | tac
 }
 
 
