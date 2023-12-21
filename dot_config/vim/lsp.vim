@@ -10,7 +10,7 @@ Plug 'neoclide/coc.nvim', { 'do': 'npm ci' }
 " :CocInstall coc-yaml
 "Plug 'neoclide/coc-yaml'
 
-" [coc-jedi](https://github.com/neoclide/coc-yaml)
+" [coc-jedi](https://github.com/pappasam/coc-jedi)
 " :CocInstall coc-jedi
 "Plug 'pappasam/coc-jedi'
 
