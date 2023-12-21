@@ -3,3 +3,10 @@
 -- Add any additional keymaps here
 -- $HOME/larkins/.config/nvim/lua/config/keymaps.lua
 vim.keymap.del("n", "Y")
+
+-- https://www.youtube.com/watch?v=DYaTzkw3zqQ
+if vim.lsp.inlay_hint then
+  vim.keymap.set("n", "<leader>uh", function()
+    vim.lsp.inlay_hint(0, nil)
+  end, { desc = "Toggle inlay hints" })
+end
