@@ -14,13 +14,22 @@ Plug 'neoclide/coc.nvim', { 'do': 'npm ci' }
 " :CocInstall coc-jedi
 "Plug 'pappasam/coc-jedi'
 
+" [coc-pyright](https://github.com/fannheyward/coc-pyright)
+" :CocInstall coc-pyright
+"Plug 'fannheyward/coc-pyright'
+
+" [coc-ruff](https://github.com/yaegassy/coc-ruff)
+" :CocInstall @yaegassy/coc-ruff
+" :CocCommand ruff.builtin.installServer
+" Plug 'yaegassy/coc-ruff', {'do': 'yarn install --frozen-lockfile'}
+
 
 " Configuration
 let g:coc_disable_startup_warning = 1
 
 " Use tab for trigger completion with characters ahead and navigate
-" NOTE: There's always complete item selected by default, you may want to enable
-" no select by `"suggest.noselect": true` in your configuration file
+" NOTE: There's always complete item selected by default, you may want to
+" enable no select by `"suggest.noselect": true` in your configuration file
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config
 inoremap <silent><expr> <TAB>
@@ -47,7 +56,8 @@ else
 endif
 
 " Use `[g` and `]g` to navigate diagnostics
-" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location
+" list
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
@@ -72,36 +82,36 @@ endfunction
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Symbol renaming
-nmap <leader>rn <Plug>(coc-rename)
+nmap <leader>crn <Plug>(coc-rename)
 
 " Formatting selected code
-xmap <leader>F  <Plug>(coc-format-selected)
-nmap <leader>F  <Plug>(coc-format-selected)
+xmap <leader>cF  <Plug>(coc-format-selected)
+nmap <leader>cF  <Plug>(coc-format-selected)
 
-augroup mygroup
-autocmd!
-" Setup formatexpr specified filetype(s)
-autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-" Update signature help on jump placeholder
-autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+augroup CoCAuGroup
+   autocmd!
+   " Setup formatexpr specified filetype(s)
+   autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+   " Update signature help on jump placeholder
+   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
 
 " Applying code actions to the selected code block
 " Example: `<leader>aap` for current paragraph
-xmap <leader>a  <Plug>(coc-codeaction-selected)
-nmap <leader>a  <Plug>(coc-codeaction-selected)
+xmap <leader>ca  <Plug>(coc-codeaction-selected)
+nmap <leader>ca  <Plug>(coc-codeaction-selected)
 
 " Remap keys for applying code actions at the cursor position
-nmap <leader>ac  <Plug>(coc-codeaction-cursor)
+nmap <leader>cac  <Plug>(coc-codeaction-cursor)
 " Remap keys for apply code actions affect whole buffer
-nmap <leader>as  <Plug>(coc-codeaction-source)
+nmap <leader>cas  <Plug>(coc-codeaction-source)
 " Apply the most preferred quickfix action to fix diagnostic on the current line
-nmap <leader>qf  <Plug>(coc-fix-current)
+nmap <leader>cqf  <Plug>(coc-fix-current)
 
 " Remap keys for applying refactor code actions
-nmap <silent> <leader>re <Plug>(coc-codeaction-refactor)
-xmap <silent> <leader>r  <Plug>(coc-codeaction-refactor-selected)
-nmap <silent> <leader>r  <Plug>(coc-codeaction-refactor-selected)
+nmap <silent> <leader>cre <Plug>(coc-codeaction-refactor)
+xmap <silent> <leader>cr  <Plug>(coc-codeaction-refactor-selected)
+nmap <silent> <leader>cr  <Plug>(coc-codeaction-refactor-selected)
 
 " Run the Code Lens action on the current line
 nmap <leader>cl  <Plug>(coc-codelens-action)
@@ -146,21 +156,24 @@ command! -nargs=0 OR   :call     CocActionAsync('runCommand', 'editor.action.org
 " provide custom statusline: lightline.vim, vim-airline
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
-" TODO Space is our Leader, this might interfer with the following:
-" Mappings for CoCList
-" Show all diagnostics
-nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
-" Manage extensions
-nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
-" Show commands
-nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
-" Find symbol of current document
-nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
-" Search workspace symbols
-nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
-" Do default action for next item
-nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
-" Do default action for previous item
-nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
-" Resume latest coc list
-nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+nnoremap <silent> <space>cd  :<C-u>CocList diagnostics<cr>
+"if get(g:, "mapleader", "\\") != "\<Space>"
+"   " TODO Space is our Leader, this might interfer with the following:
+"   " Mappings for CoCList
+"   " Show all diagnostics
+"   "nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
+"   " Manage extensions
+"   nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
+"   " Show commands
+"   nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
+"   " Find symbol of current document
+"   nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
+"   " Search workspace symbols
+"   nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
+"   " Do default action for next item
+"   nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
+"   " Do default action for previous item
+"   nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
+"   " Resume latest coc list
+"   nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+"end
