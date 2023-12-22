@@ -65,12 +65,11 @@ source ~/.config/vim/plugins.vim
    set smartcase " if there are caps, go case-sensitive
 
    " Put typical Portage directory structure in the search path for "gf"
-   set path=.,../*,$BOOST_ROOT/include,/usr/include,,
    set nolist listchars=extends:«,tab:»·,trail:°
 " }
 
 
-" Vim UI {
+" UI {
    set relativenumber   " Helps to quickly calculate line jumps
    set ruler
    set incsearch
@@ -84,7 +83,7 @@ source ~/.config/vim/plugins.vim
      set wildmenu
      set wildmode=longest,list,full
    " }
- 
+
    "set statusline=%<%f%h%m%r%=%b\ 0x%B\ \ %l,%c%V\ %P " Change the statusline to also show unicode value of a character.
    "set statusline=%<%f%h%m%=%{\"[\".(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\").\"]\ \"}%r%=%b\ 0x%B\ \ %l,%c%V\ %P " Change the statusline to also show unicode value of a character.
    if has("statusline")
@@ -349,13 +348,6 @@ endfunction
 
 
 
-" Autocommands {
-   " This will auto indent xml file.
-   "au FileType xml exe ":silent 1,$!xmllint --format --recover - 2>/dev/null"
-   "au FileType xml set nowrap
-" }
-
-
 " Perl autofolding sub {
 "   function GetPerlFold()
 "     if getline(v:lnum) =~ '^\s*sub\s'
@@ -412,19 +404,6 @@ endfunction
 " }
 
 
-"" Python specifics
-"" Warning: this must be the last thing so it doesn't get overriden.
-"" {
-"au BufNewFile,BufRead *.py
-"    \ set tabstop=3 |
-"    \ set softtabstop=3 |
-"    \ set shiftwidth=3 |
-"    \ set textwidth=79 |
-"    \ set expandtab |
-"    \ set autoindent |
-"    \ set fileformat=unix
-"" }
-
 " Quick Code Snippets
 " {
    abbr _pudb_ from pudb import set_trace; set_trace()
@@ -443,6 +422,10 @@ endfunction
 
 " Set commands to be run for certain file types.
 " {
+   " This will auto indent xml file.
+   "au FileType xml exe ":silent 1,$!xmllint --format --recover - 2>/dev/null"
+   "au FileType xml set nowrap
+
    " Do not expand tabs when editing a Makefile.
    autocmd BufRead,BufNewFile Makefile set noexpandtab
 
@@ -452,7 +435,21 @@ endfunction
    autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
    autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
    autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
+
+   "" Python specifics
+   "" Warning: this must be the last thing so it doesn't get overriden.
+   "" {
+   "au BufNewFile,BufRead *.py
+   "    \ set tabstop=3 |
+   "    \ set softtabstop=3 |
+   "    \ set shiftwidth=3 |
+   "    \ set textwidth=79 |
+   "    \ set expandtab |
+   "    \ set autoindent |
+   "    \ set fileformat=unix
+   "" }
 " }
+
 
 " Disable Bell
 " {
