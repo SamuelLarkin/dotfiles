@@ -17,6 +17,22 @@ local plugins = {
   },
 
   {
+     "lewis6991/gitsigns.nvim",
+     signs = {
+        add          = { text = '+' },
+        change       = { text = '-' },
+        delete       = { text = '_' },
+        topdelete    = { text = '‾' },
+        changedelete = { text = '~' },
+        untracked    = { text = '┆' },
+     },
+     opts = {
+        linehl = true, -- Toggle with `:Gitsigns toggle_linehl`
+        word_diff = true, -- Toggle with `:Gitsigns toggle_word_diff`
+     },
+  },
+
+  {
     "williamboman/mason.nvim",
     opts = {
       ensure_installed = {
