@@ -38,7 +38,10 @@ local plugins = {
     -- Find, Filter, Preview, Pick. All lua, all the time.
     "nvim-telescope/telescope.nvim",
     keys = {
-      { "<leader>gf", "<cmd>Telescope git_files<CR>", desc = "files" },
+      { "<leader>ct", "<cmd>Telescope treesitter<CR>", desc = "treesitter symbols" },
+      { "<leader>fg", "<cmd>Telescope git_files<CR>", desc = "git files" },
+      { "<leader>gf", "<cmd>Telescope git_files<CR>", desc = "git files" },
+      { "<leader>sz", "<cmd>Telescope treesitter<CR>", desc = "treesitter symbols" },
     },
   },
 
