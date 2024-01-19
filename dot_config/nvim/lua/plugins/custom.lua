@@ -86,12 +86,12 @@ local plugins = {
     -- Git integration for buffers
     "lewis6991/gitsigns.nvim",
     signs = {
-      add          = { text = '+' },
-      change       = { text = '-' },
-      delete       = { text = '_' },
-      topdelete    = { text = '‾' },
-      changedelete = { text = '~' },
-      untracked    = { text = '┆' },
+      add = { text = "+" },
+      change = { text = "-" },
+      delete = { text = "_" },
+      topdelete = { text = "‾" },
+      changedelete = { text = "~" },
+      untracked = { text = "┆" },
     },
     opts = {
       linehl = true, -- Toggle with `:Gitsigns toggle_linehl`
