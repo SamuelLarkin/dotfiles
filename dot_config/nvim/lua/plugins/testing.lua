@@ -22,7 +22,7 @@ local plugins = {
           "SmiteshP/nvim-navic",
           "MunifTanjim/nui.nvim",
         },
-        keys = { { "<leader>cn", "<cmd>NavbuddyOpen<cr>", desc = "NavbuddyOpen" } },
+        keys = { { "<leader>cn", "<cmd>Navbuddy<cr>", desc = "NavbuddyOpen" } },
         opts = { lsp = { auto_attach = true } },
       },
     },
