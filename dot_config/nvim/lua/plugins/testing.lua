@@ -1,8 +1,15 @@
 local plugins = {
-  { "echasnovski/mini.colors", version = false },
+  {
+    -- [github](https://github.com/echasnovski/mini.colors)
+    -- Tweak and save any color scheme. Part of 'mini.nvim' library.
+    "echasnovski/mini.colors",
+    version = false,
+  },
 
   {
-    -- Wanted to use `[i` to progressively expand a selection based on indentation but this does NOT work
+    -- [github](https://github.com/echasnovski/mini.indentscope)
+    -- Neovim Lua plugin to visualize and operate on indent scope. Part of 'mini.nvim' library.
+    -- NOTE: Wanted to use `[i` to progressively expand a selection based on indentation but this does NOT work
     "echasnovski/mini.indentscope",
     opts = {
       options = {
@@ -14,6 +21,9 @@ local plugins = {
   },
 
   {
+    -- NavBuddy
+    -- [github](https://github.com/SmiteshP/nvim-navbuddy)
+    -- A simple popup display that provides breadcrumbs feature using LSP server
     "neovim/nvim-lspconfig",
     dependencies = {
       {
@@ -30,6 +40,9 @@ local plugins = {
   },
 
   {
+    -- [github](https://github.com/sindrets/diffview.nvim)
+    -- Single tabpage interface for easily cycling through diffs for all modified files for any git rev.
+    -- NOTE: Could this replace VCSVimDiff?
     "sindrets/diffview.nvim",
     keys = { { "<leader>gd", "<cmd>DiffviewOpen<cr>", desc = "VCSVimDiff" } },
   },

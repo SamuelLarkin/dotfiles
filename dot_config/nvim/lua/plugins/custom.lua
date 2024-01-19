@@ -2,6 +2,8 @@
 
 local plugins = {
   {
+    --[github](https://github.com/LazyVim/LazyVim)
+    -- Neovim config for the lazy.
     "LazyVim/LazyVim",
     opts = {
       -- We've tried "slate" but the color for indentation is too aggressive.
@@ -32,6 +34,8 @@ local plugins = {
   },
 
   {
+    -- [github](https://github.com/nvim-telescope/telescope.nvim)
+    -- Find, Filter, Preview, Pick. All lua, all the time.
     "nvim-telescope/telescope.nvim",
     keys = {
       { "<leader>gf", "<cmd>Telescope git_files<CR>", desc = "files" },
@@ -39,22 +43,28 @@ local plugins = {
   },
 
   {
-     "lewis6991/gitsigns.nvim",
-     signs = {
-        add          = { text = '+' },
-        change       = { text = '-' },
-        delete       = { text = '_' },
-        topdelete    = { text = '‾' },
-        changedelete = { text = '~' },
-        untracked    = { text = '┆' },
-     },
-     opts = {
-        linehl = true, -- Toggle with `:Gitsigns toggle_linehl`
-        word_diff = true, -- Toggle with `:Gitsigns toggle_word_diff`
-     },
+    -- Gitsigns
+    -- [github](https://github.com/lewis6991/gitsigns.nvim)
+    -- Git integration for buffers
+    "lewis6991/gitsigns.nvim",
+    signs = {
+      add          = { text = '+' },
+      change       = { text = '-' },
+      delete       = { text = '_' },
+      topdelete    = { text = '‾' },
+      changedelete = { text = '~' },
+      untracked    = { text = '┆' },
+    },
+    opts = {
+      linehl = true, -- Toggle with `:Gitsigns toggle_linehl`
+      word_diff = true, -- Toggle with `:Gitsigns toggle_word_diff`
+    },
   },
 
   {
+    -- Mason
+    -- [github](https://github.com/williamboman/mason.nvim)
+    -- Portable package manager for Neovim that runs everywhere Neovim runs. Easily install and manage LSP servers, DAP servers, linters, and formatters.
     "williamboman/mason.nvim",
     opts = {
       ensure_installed = {
@@ -89,12 +99,16 @@ local plugins = {
   },
 
   {
+    -- [github](https://github.com/folke/persistence.nvim)
+    -- 💾 Simple session management for Neovim.
     -- Don't reload workspace.
     "folke/persistence.nvim",
     enabled = false,
   },
 
   {
+    -- [github](https://github.com/stevearc/conform.nvim)
+    -- Lightweight yet powerful formatter plugin for Neovim.
     "stevearc/conform.nvim",
     opts = {
       -- Define your formatters
@@ -116,6 +130,8 @@ local plugins = {
   },
 
   {
+    -- [github](https://github.com/mfussenegger/nvim-lint)
+    -- An asynchronous linter plugin for Neovim complementary to the built-in Language Server Protocol support.
     "mfussenegger/nvim-lint",
     opts = {
       -- Event to trigger linters
