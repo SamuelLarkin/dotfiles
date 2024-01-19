@@ -34,20 +34,6 @@ local plugins = {
     keys = { { "<leader>gd", "<cmd>DiffviewOpen<cr>", desc = "VCSVimDiff" } },
   },
 
-  --[[
-   {
-      -- [Make TokyoNight Transparent](https://www.lazyvim.org/configuration/recipes#make-tokyonight-transparent)
-      "folke/tokyonight.nvim",
-      opts = {
-         transparent = true,
-         styles = {
-            sidebars = "transparent",
-            floats = "transparent",
-         },
-      },
-   },
-   ]]
-  --
 }
 
 return plugins

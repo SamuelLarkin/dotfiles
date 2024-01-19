@@ -5,7 +5,29 @@ local plugins = {
     "LazyVim/LazyVim",
     opts = {
       -- We've tried "slate" but the color for indentation is too aggressive.
-      colorscheme = "tokyonight",
+      colorscheme = "tokyonight-night",
+    },
+  },
+
+  {
+    -- [github](https://github.com/folke/tokyonight.nvim)
+    -- 🏙 A clean, dark Neovim theme written in Lua, with support for lsp, treesitter and lots of plugins. Includes additional themes for Kitty, Alacritty, iTerm and Fish.
+    -- [Make TokyoNight Transparent](https://www.lazyvim.org/configuration/recipes#make-tokyonight-transparent)
+    -- TODO: Change the comment background color to a darker one.
+    "folke/tokyonight.nvim",
+    opts = {
+      style = "night",
+      transparent = false,
+      styles = {
+        sidebars = "transparent",
+        floats = "transparent",
+      },
+      -- Change the "hint" color to the "orange" color, and make the "error" color bright red
+      on_colors = function(colors)
+        colors.hint = colors.orange
+        colors.error = "#ff0000"
+        colors.comment = "#34363d"
+      end,
     },
   },
 
