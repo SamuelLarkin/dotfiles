@@ -46,6 +46,41 @@ local plugins = {
   },
 
   {
+    -- [github](https://github.com/L3MON4D3/LuaSnip)
+    -- Snippet Engine for Neovim written in Lua.
+    "L3MON4D3/LuaSnip",
+    opts = {
+      history = true,
+      delete_check_events = "TextChanged",
+    },
+    config = function(_LazyPlugin, opts)
+      require("luasnip").setup(opts)
+      local ls = require("luasnip")
+      -- some shorthands...
+      local snip = ls.snippet
+      local node = ls.snippet_node
+      local text = ls.text_node
+      local insert = ls.insert_node
+      local func = ls.function_node
+      local choice = ls.choice_node
+      local dynamicn = ls.dynamic_node
+
+      ls.add_snippets(nil, {
+        all = {
+          snip({
+            trig = "github_link",
+            desc = "Add a markdown link to github",
+          }, {
+            text("[github]("),
+            insert(1, "https://github.com/"),
+            text(")"),
+          }),
+        },
+      })
+    end,
+  },
+
+  {
     -- Gitsigns
     -- [github](https://github.com/lewis6991/gitsigns.nvim)
     -- Git integration for buffers
