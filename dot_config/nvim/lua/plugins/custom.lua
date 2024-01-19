@@ -201,6 +201,14 @@ local plugins = {
       },
     },
   },
+
+  {
+    -- [github](https://github.com/HiPhish/rainbow-delimiters.nvim)
+    -- Rainbow delimiters for Neovim with Tree-sitter.
+    -- [help](https://github.com/HiPhish/rainbow-delimiters.nvim/blob/master/doc/rainbow-delimiters.txt)
+    -- `:h rainbow-delimiters`
+    "HiPhish/rainbow-delimiters.nvim",
+  },
 }
 
 return plugins
