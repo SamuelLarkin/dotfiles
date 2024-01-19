@@ -123,7 +123,7 @@ local plugins = {
           -- --i, --indent uint       0 for tabs (default), >0 for number of spaces
           -- -sr, --space-redirects   redirect operators will be followed by a space
           -- -kp, --keep-padding      keep column alignment paddings
-          prepend_args = { "-i", "3", "-sr", "-kp" },
+          prepend_args = { "--indent", "3", "--space-redirects", "--keep-padding" },
         },
       },
     },
