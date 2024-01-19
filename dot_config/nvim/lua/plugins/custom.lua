@@ -114,6 +114,9 @@ local plugins = {
       -- Define your formatters
       formatters_by_ft = {
         python = { "isort", "black", "ruff" },
+        -- Use the "_" filetype to run formatters on filetypes that don't
+        -- have other formatters configured.
+        ["_"] = { "trim_whitespace" },
       },
       -- Set up format-on-save
       -- format_on_save = { timeout_ms = 500, lsp_fallback = true },
