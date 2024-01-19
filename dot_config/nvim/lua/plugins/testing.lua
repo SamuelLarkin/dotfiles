@@ -62,7 +62,15 @@ local plugins = {
     opts = {
       -- configurations go here
     },
-  }
+  },
+
+  {
+    -- [github](https://github.com/mrcjkb/rustaceanvim)
+    -- Supercharge your Rust experience in Neovim! A heavily modified fork of rust-tools.nvim.
+    "mrcjkb/rustaceanvim",
+    version = "^3", -- Recommended
+    ft = { "rust" },
+  },
 }
 
 return plugins
