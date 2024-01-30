@@ -77,6 +77,16 @@ local plugins = {
           }),
         },
       })
+      ls.add_snippets("python", {
+        snip({
+          trig = "_pudb_",
+          desc = "Insert a pudb breakpoint",
+        }, text("import pudb; pudb.set_trace()")),
+        snip({
+          trig = "_test_",
+          desc = "Testing luasnip",
+        }, text("import pudb; pudb.set_trace()")),
+      })
     end,
   },
 
