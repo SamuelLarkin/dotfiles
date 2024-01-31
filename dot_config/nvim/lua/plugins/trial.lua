@@ -44,7 +44,7 @@ local plugins = {
     -- Single tabpage interface for easily cycling through diffs for all modified files for any git rev.
     -- NOTE: Could this replace VCSVimDiff?
     "sindrets/diffview.nvim",
-    keys = { { "<leader>gd", "<cmd>DiffviewOpen<cr>", desc = "VCSVimDiff" } },
+    keys = { { "<leader>gd", "<cmd>DiffviewOpen<cr>", desc = "DiffView a replacement for VCSVimDiff" } },
   },
 
   {
