@@ -1,5 +1,12 @@
 local plugins = {
   {
+    -- [github](https://github.com/Mofiqul/dracula.nvim)
+    -- Dracula colorscheme for neovim written in Lua.
+    "Mofiqul/dracula.nvim",
+    event = "VeryLazy",
+  },
+
+  {
     -- [github](https://github.com/echasnovski/mini.colors)
     -- Tweak and save any color scheme. Part of 'mini.nvim' library.
     "echasnovski/mini.colors",
