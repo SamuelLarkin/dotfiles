@@ -1,5 +1,12 @@
 local plugins = {
   {
+    -- [github](https://github.com/pwntester/octo.nvim?tab=readme-ov-file)
+    -- Edit and review GitHub issues and pull requests from the comfort of your favorite editor.
+    "pwntester/octo.nvim",
+    event = "VeryLazy",
+  },
+
+  {
     -- [github](https://github.com/Mofiqul/dracula.nvim)
     -- Dracula colorscheme for neovim written in Lua.
     "Mofiqul/dracula.nvim",
