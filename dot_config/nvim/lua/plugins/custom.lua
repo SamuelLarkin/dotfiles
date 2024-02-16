@@ -26,9 +26,9 @@ local plugins = {
       },
       -- Change the "hint" color to the "orange" color, and make the "error" color bright red
       on_colors = function(colors)
-        colors.hint = colors.orange
-        colors.error = "#ff0000"
-        colors.comment = "#34363d"
+        colors.hint = "#a64f11"
+        colors.error = "#870d0d"
+        colors.comment = "#45474e"
       end,
     },
   },
