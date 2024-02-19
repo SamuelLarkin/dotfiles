@@ -1,5 +1,16 @@
 local plugins = {
   {
+    -- Create a Which-Key-Group to hold the trial key mapping.
+    "folke/which-key.nvim",
+    opts = {
+      defaults = {
+        mode = { "n", "v" },
+        ["<leader>t"] = { name = "+trial" },
+      },
+    },
+  },
+
+  {
     -- [github](https://github.com/pwntester/octo.nvim?tab=readme-ov-file)
     -- Edit and review GitHub issues and pull requests from the comfort of your favorite editor.
     "pwntester/octo.nvim",
