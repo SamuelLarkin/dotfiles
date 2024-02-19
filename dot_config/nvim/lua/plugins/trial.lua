@@ -25,6 +25,36 @@ local plugins = {
     -- event = "VeryLazy",
   },
 
+  {
+    -- [Structural search and replace](https://www.jetbrains.com/help/idea/structural-search-and-replace.html)
+    -- [github](https://github.com/cshuaimin/ssr.nvim)
+    -- Treesitter based structural search and replace plugin for Neovim.
+    "cshuaimin/ssr.nvim",
+    keys = {
+      {
+        "<leader>ts",
+        function()
+          require("ssr").open()
+        end,
+        desc = "Structural Search and Replace",
+        mode = { "n", "x" },
+      },
+    },
+    opts = {
+      border = "rounded",
+      min_width = 50,
+      min_height = 5,
+      max_width = 120,
+      max_height = 25,
+      adjust_window = true,
+      keymaps = {
+        close = "q",
+        next_match = "n",
+        prev_match = "N",
+        replace_confirm = "<cr>",
+        replace_all = "<leader><cr>",
+      },
+    },
   },
 
   {
