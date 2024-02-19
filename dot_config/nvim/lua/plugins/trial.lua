@@ -14,7 +14,17 @@ local plugins = {
     -- [github](https://github.com/pwntester/octo.nvim?tab=readme-ov-file)
     -- Edit and review GitHub issues and pull requests from the comfort of your favorite editor.
     "pwntester/octo.nvim",
-    event = "VeryLazy",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim",
+      -- OR 'ibhagwan/fzf-lua',
+      "nvim-tree/nvim-web-devicons",
+    },
+    opts = {},
+    cmd = "Octo",
+    -- event = "VeryLazy",
+  },
+
   },
 
   {
