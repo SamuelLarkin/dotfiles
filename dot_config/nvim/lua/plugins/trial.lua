@@ -11,6 +11,82 @@ local plugins = {
   },
 
   {
+    -- [Linewise selections should include all empty lines below](https://github.com/nvim-treesitter/nvim-treesitter-textobjects/issues/307)
+    -- [Treesitter text objects mapping not working or being overwritten](https://www.reddit.com/r/neovim/comments/12x8mbf/treesitter_text_objects_mapping_not_working_or/)
+    -- [example config](https://github.com/augustocdias/dotfiles/blob/main/.config/nvim/lua/setup/treesitter.lua)
+    "nvim-treesitter/nvim-treesitter",
+    -- "nvim-treesitter/nvim-treesitter-textobjects",
+    -- main = "nvim-treesitter.configs",
+    opts = {
+      -- indent = {
+      --   enable = true,
+      --   -- disable = {
+      --     "rust",
+      --     "python",
+      --   },
+      -- },
+      textobjects = {
+        -- move = {
+        --   enable = true,
+        --   -- goto_next_start = { ["]f"] = "@function.outer", ["]c"] = "@class.outer" },
+        --   goto_next_start = { ["]z"] = "@function.outer", ["]c"] = "@class.outer" },
+        --   goto_next_end = { ["]F"] = "@function.outer", ["]C"] = "@class.outer" },
+        --   goto_previous_start = { ["[f"] = "@function.outer", ["[c"] = "@class.outer" },
+        --   goto_previous_end = { ["[F"] = "@function.outer", ["[C"] = "@class.outer" },
+        -- },
+        select = {
+          enable = true,
+
+          -- Automatically jump forward to textobj, similar to targets.vim
+          lookahead = true,
+
+          keymaps = {
+            -- You can use the capture groups defined in textobjects.scm
+            -- You can optionally set descriptions to the mappings (used in the desc parameter of
+            -- nvim_buf_set_keymap) which plugins like which-key display
+            ["af"] = "@function.outer",
+            ["if"] = "@function.inner",
+            ["ac"] = "@class.outer",
+            ["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" },
+            ["au"] = "@comment.outer",
+            ["iu"] = "@comment.inner",
+            ["ab"] = "@block.outer",
+            ["ib"] = "@block.inner",
+          },
+          -- You can choose the select mode (default is charwise 'v')
+          --
+          -- Can also be a function which gets passed a table with the keys
+          -- * query_string: eg '@function.inner'
+          -- * method: eg 'v' or 'o'
+          -- and should return the mode ('v', 'V', or '<c-v>') or a table
+          -- mapping query_strings to modes.
+          -- "v" -- charwise
+          -- "V" -- linewise
+          -- "<c-v>" -- blockwise
+          selection_modes = {
+            ["@parameter.outer"] = "v", -- charwise
+            ["@function.inner"] = "V", -- linewise
+            ["@function.outer"] = "V", -- linewise
+            ["@class.inner"] = "V", -- linewise
+            ["@class.outer"] = "V", -- linewise
+          },
+          -- If you set this to `true` (default is `false`) then any textobject is
+          -- extended to include preceding or succeeding whitespace. Succeeding
+          -- whitespace has priority in order to act similarly to eg the built-in
+          -- `ap`.
+          --
+          -- Can also be a function which gets passed a table with the keys
+          -- * query_string: eg '@function.inner'
+          -- * selection_mode: eg 'v'
+          -- and should return true of false
+          -- [Delete @function.outer deletes more than it should](https://github.com/nvim-treesitter/nvim-treesitter-textobjects/issues/575)
+          include_surrounding_whitespace = false,
+        },
+      },
+    },
+  },
+
+  {
     -- [github](https://github.com/pwntester/octo.nvim?tab=readme-ov-file)
     -- Edit and review GitHub issues and pull requests from the comfort of your favorite editor.
     "pwntester/octo.nvim",
