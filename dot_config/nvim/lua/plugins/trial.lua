@@ -134,6 +134,12 @@ local plugins = {
   },
 
   {
+    -- [github](https://github.com/nyoom-engineering/oxocarbon.nvim)
+    -- A dark and light Neovim theme written in fennel, inspired by IBM Carbon.
+    "nyoom-engineering/oxocarbon.nvim",
+  },
+
+  {
     -- [github](https://github.com/Mofiqul/dracula.nvim)
     -- Dracula colorscheme for neovim written in Lua.
     "Mofiqul/dracula.nvim",
