@@ -10,6 +10,8 @@
 # git remote add --mirror=push backup ws:~/git_backups/cst.git
 # git push backup
 [alias]
+   difft   = "!f() { GIT_EXTERNAL_DIFF=difft git diff $@; }; f"  # Use `difftastic` when diffing.
+   dlog    = "!f() { GIT_EXTERNAL_DIFF=difft git log -p --ext-diff $@; }; f"  # `git dlog` to show `git log -p` with difftastic.
    ejlog   = log --color --format=ej --graph  # Eric denser than dense log output.
    ign     = ls-files --exclude-standard --ignored --others  # Show files ignored by git
    lg      = log --all --color --decorate --graph --oneline  # Shows a compact colored graph of all branches with tags.
@@ -70,42 +72,42 @@
 
    # Creating the example tree in rebase-tree's documentation.
    # echo A > file
-   # 
+   #
    # git add file
    # git commit -m "A" file
-   # 
+   #
    # echo B >file
    # git commit -m "B" file
-   # 
+   #
    # git checkout -b feature
-   # 
+   #
    # echo Z >file
    # git commit -m "Z" file
-   # 
+   #
    # echo Y >file
    # git commit -m "Y" file
-   # 
+   #
    # echo C >file
    # git commit -m "C" file
-   # 
+   #
    # git checkout -b feature-a
    # git checkout -b feature-b
-   # 
+   #
    # echo E >file
    # git commit -m "E" file
-   # 
+   #
    # git checkout feature-a
-   # 
+   #
    # echo D >file
    # git commit -m "D" file
-   # 
+   #
    # git checkout feature
-   # 
+   #
    # echo G >file
    # git commit -m "G" file
-   # 
+   #
    # git checkout master
-   # 
+   #
    # echo F >file
    # git commit -m "F" file
 
