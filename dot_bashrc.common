@@ -90,6 +90,9 @@ which zoxide &> /dev/null && eval "$(zoxide init bash)"
 # Enable starship prompt
 which starship &> /dev/null && eval "$(starship init bash)"
 
+# Enable fzf completion and key-bindings.
+fzf --bash &> /dev/null && eval "$(fzf --bash)"
+
 
 # Disabled since we prefer fzf's CTRL+R
 #shopt -q login_shell && bind '"\C-g": forward-search-history'
