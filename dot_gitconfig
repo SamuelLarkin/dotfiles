@@ -24,7 +24,22 @@
    wd      = diff --color-words # word diff
    cp      = cherry-pick -x # Always add from which commit we cherry-picked
    # [Git Checkout Recent Branch with Search & Preview](https://www.youtube.com/watch?v=lZehYwOfJAs)
-   change-branch   = "!f(){ git branch --sort=-committerdate | fzf --header \"Checkout Recent Branch\" --preview \"git diff --color=always {1} | delta\"  | xargs git checkout; }; f"
+  switch-branch  = "!f(){ \
+    git branch --sort=-committerdate \
+    | fzf \
+        --header \"Checkout Recent Branch\" \
+        --preview-window=\"top:85%\" \
+        --preview \"GIT_EXTERNAL_DIFF='difft --color always' git diff {1}\" \
+    | xargs --no-run-if-empty git checkout; \
+    }; f"
+  switch-branch   = "!f(){ \
+    git branch2 --sort=-committerdate \
+    | fzf \
+        --header \"Checkout Recent Branch\" \
+        --preview-window=\"top:85%\" \
+        --preview \"git diff --color=always {1} | delta\" \
+    | xargs --no-run-if-empty git checkout; \
+    }; f"
 
    # grep in all version
    #  git grep <regexp> $(git rev-list --all)
