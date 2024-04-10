@@ -11,7 +11,7 @@
 # git push backup
 [alias]
    difft   = "!f() { GIT_EXTERNAL_DIFF=difft git diff $@; }; f"  # Use `difftastic` when diffing.
-   dlog    = "!f() { GIT_EXTERNAL_DIFF=difft git log -p --ext-diff $@; }; f"  # `git dlog` to show `git log -p` with difftastic.
+   logt    = "!f() { GIT_EXTERNAL_DIFF=difft git log -p --ext-diff $@; }; f"  # `git logt` to show `git log -p` with `difftastic`.
    ejlog   = log --color --format=ej --graph  # Eric denser than dense log output.
    ign     = ls-files --exclude-standard --ignored --others  # Show files ignored by git
    lg      = log --all --color --decorate --graph --oneline  # Shows a compact colored graph of all branches with tags.
