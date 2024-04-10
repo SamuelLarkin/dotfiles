@@ -65,10 +65,26 @@
    # git merge-base $1 $2 => find the commit's SHA-1 from which $2 branches off $1, this would be B
    # FIND_Z=`git rev-list $2 | grep -B1 $(git merge-base $1 $2) | head -1`; => find the first commit off the new subtree aka Z
    # Then move all branches that have Z in them.
-   rebase-tree = "!f(){ FIND_Z=`git rev-list $2 | grep -B1 $(git merge-base $1 $2) | head -1`; echo "Moving tree starting at $FIND_Z"; git branch --contains $FIND_Z | sed -e s/^\\*// | xargs --interactive -t -n 1 git rebase --committer-date-is-author-date --onto $1 $FIND_Z^; };f"
-   rebase-tree-Orig = "!f(){ git branch --contains $2 | sed -e s/^\\*// | xargs -t -n 1 git rebase --committer-date-is-author-date --onto $1 $2^; };f"
+  rebase-tree = "!f(){ \
+    FIND_Z=`git rev-list $2 | grep -B1 $(git merge-base $1 $2) | head -1`; \
+    echo "Moving tree starting at $FIND_Z"; \
+    git branch --contains $FIND_Z \
+    | sed -e s/^\\*// \
+    | xargs --interactive -t -n 1 \
+        git rebase --committer-date-is-author-date --onto $1 $FIND_Z^; \
+    }; f"
+  rebase-tree-Orig = "!f(){ \
+    git branch --contains $2 \
+    | sed -e s/^\\*// \
+    | xargs -t -n 1 git rebase --committer-date-is-author-date --onto $1 $2^; \
+    }; f"
    # Darlene's version doesn't work if you specify feature-a for example, it will only rebase feature-a.
-   rebase-tree-ds = "!f(){ bp=$(git merge-base $1 $2); git branch --contains $2 | sed -e s/^\\*// | xargs -t -n 1 git rebase --committer-date-is-author-date --onto $1 $bp; };f"
+  rebase-tree-ds = "!f(){ \
+    bp=$(git merge-base $1 $2); \
+    git branch --contains $2 \
+    | sed -e s/^\\*// \
+    | xargs -t -n 1 git rebase --committer-date-is-author-date --onto $1 $bp; \
+    }; f"
 
    # Creating the example tree in rebase-tree's documentation.
    # echo A > file
