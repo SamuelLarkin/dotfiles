@@ -9,9 +9,13 @@
 # git init --bare ws:~/git_backups/cst.git
 # git remote add --mirror=push backup ws:~/git_backups/cst.git
 # git push backup
+
 [alias]
+   # Difftastic Enhancements
    difft   = "!f() { GIT_EXTERNAL_DIFF=difft git diff $@; }; f"  # Use `difftastic` when diffing.
    logt    = "!f() { GIT_EXTERNAL_DIFF=difft git log -p --ext-diff $@; }; f"  # `git logt` to show `git log -p` with `difftastic`.
+   showt   = "!f() { GIT_EXTERNAL_DIFF=difft git show --ext-diff $@; }; f"  # Use `difftastic` to show commit's patch.
+
    ejlog   = log --color --format=ej --graph  # Eric denser than dense log output.
    ign     = ls-files --exclude-standard --ignored --others  # Show files ignored by git
    lg      = log --all --color --decorate --graph --oneline  # Shows a compact colored graph of all branches with tags.
@@ -20,7 +24,7 @@
    mf      = diff --name-only # Show which files were modified on the current branch.
    mf2     = diff-tree --name-only -r  # with a branch name
    tagdesc = tag --list -n1  # View tag's annotation.
-   unstage = reset HEAD --
+   unstage = reset HEAD --  # Shouldn't this be done with `git restore` now?
    wd      = diff --color-words # word diff
    cp      = cherry-pick -x # Always add from which commit we cherry-picked
    # [Git Checkout Recent Branch with Search & Preview](https://www.youtube.com/watch?v=lZehYwOfJAs)
