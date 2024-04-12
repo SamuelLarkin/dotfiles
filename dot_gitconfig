@@ -1,3 +1,5 @@
+# vim:nowrap:
+
 # NOTES
 # What is git mergetool's command: git config --global mergetool.vimdiff3.cmd 'vim -f -d -c "wincmd J" "$MERGED" "$LOCAL" "$BASE" "$REMOTE"'
 # [How to remove a remote branch ref from local (gh-pages)](https://stackoverflow.com/a/64618529)
@@ -36,8 +38,8 @@
         --preview \"GIT_EXTERNAL_DIFF='difft --color always' git diff {1}\" \
     | xargs --no-run-if-empty git checkout; \
     }; f"
-  switch-branch   = "!f(){ \
-    git branch2 --sort=-committerdate \
+  switch-branch2   = "!f(){ \
+    git branch --sort=-committerdate \
     | fzf \
         --header \"Checkout Recent Branch\" \
         --preview-window=\"top:85%\" \
