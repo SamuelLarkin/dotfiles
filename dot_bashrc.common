@@ -53,22 +53,23 @@ which bat &> /dev/null && export MANPAGER="sh -c 'col -bx | bat --language man -
 
 # FZF
 # [fzf Web Color Picker](https://minsw.github.io/fzf-color-picker/)
-export FZF_DEFAULT_OPTS="
-   $FZF_DEFAULT_OPTS
-   --color=fg:#ccc8c8,bg:#2f1642,hl:#5f87af
-   --color=fg+:#d0d0d0,bg+:#71339e,hl+:#5fd7ff
-   --color=info:#afaf87,prompt:#d7005f,pointer:#af5fff
-   --color=marker:#87ff00,spinner:#af5fff,header:#87afaf"
+declare -a FZF_COLORS=(
+  --color=fg:#ccc8c8,bg:#2f1642,hl:#5f87af
+  --color=fg+:#d0d0d0,bg+:#71339e,hl+:#5fd7ff
+  --color=info:#afaf87,prompt:#d7005f,pointer:#af5fff
+  --color=marker:#87ff00,spinner:#af5fff,header:#87afaf
+)
 # FzF preview related configuration
 # [Keyboard bindings for scrolling preview window?](https://github.com/junegunn/fzf.vim/issues/358#issuecomment-841665170)
-export FZF_DEFAULT_OPTS="
-   $FZF_DEFAULT_OPTS
+declare -a FZF_BINDINGS=(
    --bind ctrl-/:toggle-preview
    --bind ctrl-y:preview-up,ctrl-e:preview-down
    --bind ctrl-b:preview-page-up,ctrl-f:preview-page-down
    --bind ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down
    --bind shift-up:preview-top,shift-down:preview-bottom
-   --bind alt-up:half-page-up,alt-down:half-page-down"
+   --bind alt-up:half-page-up,alt-down:half-page-down
+   )
+export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS" ${FZF_COLORS[@]} ${FZF_BINDINGS[@]}"
 # [Key bindings for command-line](https://github.com/junegunn/fzf#key-bindings-for-command-line)
 export FZF_ALT_C_OPTS="--preview 'tree -C {}'"
 export FZF_CTRL_R_OPTS="
