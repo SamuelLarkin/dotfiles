@@ -226,6 +226,29 @@ local plugins = {
     version = "^3", -- Recommended
     ft = { "rust" },
   },
+
+  {
+    -- [github](https://github.com/kristijanhusak/vim-dadbod-ui)
+    -- Simple UI for https://github.com/tpope/vim-dadbod
+    --
+    'kristijanhusak/vim-dadbod-ui',
+    dependencies = {
+      -- dadbod.vim: Modern database interface for Vim
+      { 'tpope/vim-dadbod', lazy = true },
+      -- Database autocompletion powered by https://github.com/tpope/vim-dadbod
+      { 'kristijanhusak/vim-dadbod-completion', ft = { 'sql', 'mysql', 'plsql' }, lazy = true },
+    },
+    cmd = {
+      'DBUI',
+      'DBUIToggle',
+      'DBUIAddConnection',
+      'DBUIFindBuffer',
+    },
+    init = function()
+      -- Your DBUI configuration
+      vim.g.db_ui_use_nerd_fonts = 1
+    end,
+  },
 }
 
 return plugins
