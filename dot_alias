@@ -225,7 +225,7 @@ function diffdir {
       --exclude=\*.deps\* \
       --exclude=\*.gz \
       --exclude=\*.o \
-      --ignore-all-space
+      --ignore-all-space \
       --recursive \
       -P \
       $1 \
