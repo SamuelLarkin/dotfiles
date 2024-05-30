@@ -40,6 +40,7 @@ alias lsclean='\ls -l --ignore=*.bz2 --ignore=*.gz --color=auto'
 alias lsd='lsd --long'
 alias makeComparable='sed "s/Files \(.*\) and \(.*\) differ/diff --side-by-side \1 \2 | less /"'
 alias parallel='parallel --progress  --eta'
+alias parallel_per_line="\parallel --spreadstdin --recend='\n' --keep-order"
 alias prettyjson="perl -e '\$/=undef; \$a=<STDIN>; use JSON; print JSON->new->pretty->utf8->encode(decode_json(\$a));'"
 alias python_theano='THEANO_FLAGS=mode=FAST_RUN,device=gpu,floatX=float32 python'
 alias qstatl='qstattree larkins | less'
