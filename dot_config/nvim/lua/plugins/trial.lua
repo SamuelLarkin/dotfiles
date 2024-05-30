@@ -133,6 +133,8 @@ local plugins = {
     },
   },
 
+  -- ---------------------------------------------------
+  -- Themes
   {
     -- [github](https://github.com/nyoom-engineering/oxocarbon.nvim)
     -- A dark and light Neovim theme written in fennel, inspired by IBM Carbon.
@@ -144,6 +146,12 @@ local plugins = {
     -- Dracula colorscheme for neovim written in Lua.
     "Mofiqul/dracula.nvim",
     event = "VeryLazy",
+  },
+
+  {
+    -- [github](https://github.com/anfigeno/mestizo.nvim)
+    -- Mestizo.nvim - A dark theme for those who don't leave home
+    "Anfigeno/mestizo.nvim",
   },
 
   {
