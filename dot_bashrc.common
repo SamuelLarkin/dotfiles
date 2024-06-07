@@ -35,6 +35,7 @@ export LC_CTYPE="en_CA.iso-8859-1"
 export LC_COLLATE="C"
 export LESSCHARSET=utf-8
 export LESS="--no-init --QUIET --RAW-CONTROL-CHARS --chop-long-lines --ignore-case --search-skip-screen"  # "-XQRSia"
+export LESS="$LESS --use-color --color=Sky"  # Change search result to black text on yellow background
 export EDITOR="vim"
 export PORTAGE_NO_ETAGS=1
 
