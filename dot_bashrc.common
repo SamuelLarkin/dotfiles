@@ -51,6 +51,8 @@ export LESS="--no-init --QUIET --RAW-CONTROL-CHARS --chop-long-lines --ignore-ca
 # If supported, change search result to black text on yellow background.
 man less | grep 'use-color' &> /dev/null && export LESS="$LESS --use-color --color=Sky"
 
+# FzF popup in tmux if suppported
+man tmux | grep --quiet display-popup && export FZF_TMUX_OPTS='-p80%,60%'
 
 # FzF
 # [fzf Web Color Picker](https://minsw.github.io/fzf-color-picker/)
