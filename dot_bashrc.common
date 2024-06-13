@@ -49,14 +49,14 @@ export HISTTIMEFORMAT="%F %T "
 export DOCKER_BUILDKIT=1
 
 
-# FZF
+# FzF
 # [fzf Web Color Picker](https://minsw.github.io/fzf-color-picker/)
 declare -a FZF_COLORS=(
-  --color=fg:#ccc8c8,bg:#2f1642,hl:#5f87af
-  --color=fg+:#d0d0d0,bg+:#71339e,hl+:#5fd7ff
-  --color=info:#afaf87,prompt:#d7005f,pointer:#af5fff
-  --color=marker:#87ff00,spinner:#af5fff,header:#87afaf
-)
+   --color=fg:#ccc8c8,bg:#2f1642,hl:#5f87af
+   --color=fg+:#d0d0d0,bg+:#71339e,hl+:#5fd7ff
+   --color=info:#afaf87,prompt:#d7005f,pointer:#af5fff
+   --color=marker:#87ff00,spinner:#af5fff,header:#87afaf
+   )
 # FzF preview related configuration
 # [Keyboard bindings for scrolling preview window?](https://github.com/junegunn/fzf.vim/issues/358#issuecomment-841665170)
 declare -a FZF_BINDINGS=(
