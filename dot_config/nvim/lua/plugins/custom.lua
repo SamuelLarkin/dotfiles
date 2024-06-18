@@ -219,6 +219,19 @@ local plugins = {
     -- `:h rainbow-delimiters`
     "HiPhish/rainbow-delimiters.nvim",
   },
+
+  {
+    -- [github](https://github.com/hedyhli/outline.nvim)
+    -- Code outline sidebar powered by LSP. Significantly enhanced & refactored fork of symbols-outline.nvim.
+    "hedyhli/outline.nvim",
+    opts = {
+      outline_window = {
+        -- Auto close the outline window if goto_location is triggered and not for
+        -- peek_location
+        auto_close = true,
+      },
+    },
+  },
 }
 
 return plugins
