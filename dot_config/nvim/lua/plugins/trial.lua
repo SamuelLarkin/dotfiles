@@ -135,6 +135,18 @@ local plugins = {
 
   -- ---------------------------------------------------
   -- Themes
+
+  {
+    -- [github](https://github.com/navarasu/onedark.nvim)
+    -- One dark and light colorscheme for neovim >= 0.5.0 written in lua based
+    -- on Atom's One Dark and Light theme. Additionally, it comes with 5 color
+    -- variant styles.
+    "navarasu/onedark.nvim",
+    opts = {
+      style = "darker",
+    },
+  },
+
   {
     -- [github](https://github.com/nyoom-engineering/oxocarbon.nvim)
     -- A dark and light Neovim theme written in fennel, inspired by IBM Carbon.
