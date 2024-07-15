@@ -122,7 +122,7 @@ source ~/.config/vim/plugins.vim
    " [Vim: Conditionally use fugitive#statusline function in vimrc](https://stackoverflow.com/questions/5983906/vim-conditionally-use-fugitivestatusline-function-in-vimrc)
    set statusline+=%{exists('g:loaded_fugitive')?FugitiveStatusline():''}
    if !has('nvim')
-      set statusline+=%{taghelper#curtag()}
+      set statusline+=%{has('taghelper#curtag')?taghelper#curtag():''}
    endif
    set statusline+=%=   " Separation point between left and right aligned items.  No width fields allowed.
    set statusline+=%b   " Value of byte under cursor.
