@@ -118,7 +118,9 @@ source ~/.config/vim/plugins.vim
    set statusline+=%m   " Modified flag, text is "[+]"; "[-]" if 'modifiable' is off.
    set statusline+=%{\"[\".(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\").\"]\"}  " Adds [file's encoding(BOMB)?]
    set statusline+=%r   " Readonly flag, text is "[RO]".
-   set statusline+=%{fugitive#statusline()}   " http://vimcasts.org/episodes/fugitive-vim-browsing-the-git-object-database/
+   " http://vimcasts.org/episodes/fugitive-vim-browsing-the-git-object-database/
+   " [Vim: Conditionally use fugitive#statusline function in vimrc](https://stackoverflow.com/questions/5983906/vim-conditionally-use-fugitivestatusline-function-in-vimrc)
+   set statusline+=%{exists('g:loaded_fugitive')?FugitiveStatusline():''}
    if !has('nvim')
       set statusline+=%{taghelper#curtag()}
    endif
