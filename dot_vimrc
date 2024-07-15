@@ -17,6 +17,20 @@
 " PLUGINS
 source ~/.config/vim/plugins.vim
 
+" Fix pasting from the clipboard buffer
+" {
+     " [Why does <F22> appear when pasting into Vim?](https://vi.stackexchange.com/questions/25135/why-does-f22-appear-when-pasting-into-vim)
+     " When this option is unset, Vim will disable bracketed paste mode by
+     " sending the contents of the 't_BD' option to the terminal and the
+     " terminal will then just send the contents of the clipboard with no
+     " extra escape sequences when pasting.
+     " :help t_BE
+     "   t_BE    enable bracketed paste mode       t_BE 't_BE'
+     "           xterm-bracketed-paste
+     "   t_BD    disable bracketed paste mode      t_BD 't_BD'
+     "           xterm-bracketed-paste
+     set t_BE=
+" }
 
 " {
   " from nvim :h vim_diff.txt
