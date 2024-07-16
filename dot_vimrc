@@ -19,7 +19,7 @@ source ~/.config/vim/plugins.vim
 
 " Fix pasting from the clipboard buffer
 " {
-     " [Why does <F22> appear when pasting into Vim?](https://vi.stackexchange.com/questions/25135/why-does-f22-appear-when-pasting-into-vim)
+     " [Why does <F22> appear when pasting into Vim?](https://vi.stackexchange.com/q/25135)
      " When this option is unset, Vim will disable bracketed paste mode by
      " sending the contents of the 't_BD' option to the terminal and the
      " terminal will then just send the contents of the clipboard with no
@@ -132,8 +132,8 @@ source ~/.config/vim/plugins.vim
    set statusline+=%m   " Modified flag, text is "[+]"; "[-]" if 'modifiable' is off.
    set statusline+=%{\"[\".(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\").\"]\"}  " Adds [file's encoding(BOMB)?]
    set statusline+=%r   " Readonly flag, text is "[RO]".
-   " http://vimcasts.org/episodes/fugitive-vim-browsing-the-git-object-database/
-   " [Vim: Conditionally use fugitive#statusline function in vimrc](https://stackoverflow.com/questions/5983906/vim-conditionally-use-fugitivestatusline-function-in-vimrc)
+   " [Fugitive.vim - browsing the git object database](http://vimcasts.org/episodes/fugitive-vim-browsing-the-git-object-database/)
+   " [Vim: Conditionally use fugitive#statusline function in vimrc](https://stackoverflow.com/q/5983906)
    set statusline+=%{exists('g:loaded_fugitive')?FugitiveStatusline():''}
    if !has('nvim')
       set statusline+=%{has('taghelper#curtag')?taghelper#curtag():''}
@@ -147,7 +147,7 @@ source ~/.config/vim/plugins.vim
    set statusline+=%{&paste?'=':'\ '}
    set statusline+=%{&wrap?'<':'>'}
 
-   " http://vim.wikia.com/wiki/Switch_color_schemes
+   " [Switch color schemes](http://vim.wikia.com/wiki/Switch_color_schemes)
    " Colors {
       :highlight Comment ctermfg=6 ctermbg=black
       set t_Co=256
@@ -399,7 +399,7 @@ endfunction
 
 " Function that allows diffying to buffer in order to diff two functions. {
 "enew | call setline(1, split(@a, "\n")) | diffthis | vnew | call setline(1, split(@b, "\n")) | diffthis
-   " source: http://stackoverflow.com/questions/3619146/vimdiff-two-subroutines-in-same-file
+   " [How to ‘diff’ two subroutines in the same file in Vim?](https://stackoverflow.com/q/3619146)
    let g:diffed_buffers=[]
    function DiffText(a, b, diffed_buffers)
       "enew

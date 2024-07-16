@@ -3,7 +3,7 @@
 
 function setPrompt {
    #local -r host_ip=`hostname -I | sed 's/.*\.\([0-9]\+\).*/\1/'`
-   # https://wiki.archlinux.org/index.php/Color_Bash_Prompt
+   # [Bash/Prompt customization](https://wiki.archlinux.org/index.php/Color_Bash_Prompt)
    #export PS1='\[\033[1;33m\][\u@`hostname -s`]\[\033[0;36m\]\W\$\[\033[0m\] '
    local -r White='\[\e[01;37m\]'
    local -r Red='\[\e[01;31m\]'

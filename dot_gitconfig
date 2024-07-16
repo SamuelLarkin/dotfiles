@@ -57,7 +57,7 @@
    # Rebase a tree $2 with all its children onto $1
    # $1: commit-ish (branch) to rebase onto.
    # $2: SHA1 of the first commit in the tree to be rebased.
-   # source: http://stackoverflow.com/questions/5600659/rebasing-a-branch-including-all-its-children
+   # [Rebasing a branch including all its children](https://stackoverflow.com/q/5600659)
    #
    # e.g. rebase-tree master Z
    # Before 'rebase-tree master Z':

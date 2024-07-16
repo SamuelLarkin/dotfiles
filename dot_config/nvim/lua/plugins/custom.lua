@@ -1,4 +1,4 @@
--- https://www.josean.com/posts/neovim-linting-and-formatting
+-- [How To Setup Linting & Formatting In Neovim And Replace null-ls](https://www.josean.com/posts/neovim-linting-and-formatting)
 
 local plugins = {
   {

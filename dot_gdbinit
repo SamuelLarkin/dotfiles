@@ -1,17 +1,20 @@
 # gdb GUIs
+# vim:shiftwidth=3:
 # http://ftp.gnu.org/gnu/gdb/
-# https://github.com/cs01/gdbgui
-# http://beej.us/guide/bggdb/#qref
-# https://reverseengineering.stackexchange.com/questions/1392/decent-gui-for-gdb
-# https://github.com/cyrus-and/gdb-dashboard
+# [gdbgui](https://github.com/cs01/gdbgui):
+#   Browser-based frontend to gdb (gnu debugger). Add breakpoints, view the
+#   stack, visualize data structures, and more in C, C++, Go, Rust, and
+#   Fortran. Run gdbgui from the terminal and a new tab will open in your
+#   browser.
+# [Beej's Quick Guide to GDB](http://beej.us/guide/bggdb/#qref)
+# [Decent GUI for GDB](https://reverseengineering.stackexchange.com/q/1392)
+# [gdb-dashboard](https://github.com/cyrus-and/gdb-dashboard):
+#   Modular visual interface for GDB in Python.
 
-# STL Support Tools
-# https://sourceware.org/gdb/wiki/STLSupport
+# [GDB - STL Support Tools](https://sourceware.org/gdb/wiki/STLSupport)
+# [STL GDB evaluators/views/utilities](https://sourceware.org/ml/gdb/2008-02/msg00064/stl-views.gdb)
 
-# STL GDB evaluators/views/utilities
-# https://sourceware.org/ml/gdb/2008-02/msg00064/stl-views.gdb
-
-# https://codeyarns.com/2014/07/17/how-to-enable-pretty-printing-for-stl-in-gdb/
+# [How to enable pretty printing for STL in GDB](https://codeyarns.com/2014/07/17/how-to-enable-pretty-printing-for-stl-in-gdb/)
 # svn co svn://gcc.gnu.org/svn/gcc/trunk/libstdc++-v3/python stlprettyprinter
 #python
 #import sys
@@ -20,8 +23,7 @@
 #register_libstdcxx_printers (None)
 #end
 
-# GDB Pretty Printers for Boost
-# https://github.com/ruediger/Boost-Pretty-Printer
+# [GDB Pretty Printers for Boost](https://github.com/ruediger/Boost-Pretty-Printer)
 
 
 python
