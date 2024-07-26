@@ -2,15 +2,19 @@
 
 Migrating to `chezmoi`.
 
-
 ## Install
 
-Add the following lines to your `~/.bashrc`:
+Add the following lines to your `~/.bashrc` if they are not present:
 
 ```sh
 # User specific aliases and functions
-[[ -e ~/.alias ]] && . ~/.alias || true
-[[ -e ~/.bashrc.common ]] && . ~/.bashrc.common || true
-[[ -e ~/.bashrc.specific ]] && . ~/.bashrc.specific || true
-[[ -d ~/.bash_completion.d ]] && for f in ~/.bash_completion.d/*; do source $f; done || true
+if [ -d ~/.bashrc.d ]; then
+  for rc in ~/.bashrc.d/*; do
+    if [ -f "$rc" ]; then
+      . "$rc"
+    fi
+  done
+fi
+
+unset rc
 ```
