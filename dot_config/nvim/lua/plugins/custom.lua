@@ -176,6 +176,9 @@ local plugins = {
           -- -kp, --keep-padding      keep column alignment paddings
           prepend_args = { "--indent", "3", "--space-redirects", "--keep-padding" },
         },
+        -- [Options](https://github.com/JohnnyMorganz/StyLua#options)
+        stylua = {
+          prepend_args = { "--indent-type", "Spaces", "--indent-width", "2" },
       },
     },
   },
