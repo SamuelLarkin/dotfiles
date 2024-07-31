@@ -181,6 +181,15 @@ local plugins = {
           prepend_args = { "--indent-type", "Spaces", "--indent-width", "2" },
       },
     },
+    },
+  },
+
+  {
+    "hrsh7th/nvim-cmp",
+    opts = function(_, opts)
+      -- [To remove the CR mapping, set the value of key "CR" to nil](https://github.com/LazyVim/LazyVim/discussions/2549#discussioncomment-8503533)
+      opts.mapping["<CR>"] = nil
+    end,
   },
 
   {
