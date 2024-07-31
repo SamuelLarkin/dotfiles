@@ -174,20 +174,6 @@ local plugins = {
   },
 
   {
-    -- [github](https://github.com/echasnovski/mini.indentscope)
-    -- Neovim Lua plugin to visualize and operate on indent scope. Part of 'mini.nvim' library.
-    -- NOTE: Wanted to use `[i` to progressively expand a selection based on indentation but this does NOT work
-    "echasnovski/mini.indentscope",
-    opts = {
-      options = {
-        -- Whether to use cursor column when computing reference indent.
-        -- Useful to see incremental scopes with horizontal cursor movements.
-        indent_at_cursor = true,
-      },
-    },
-  },
-
-  {
     -- NavBuddy
     -- [github](https://github.com/SmiteshP/nvim-navbuddy)
     -- A simple popup display that provides breadcrumbs feature using LSP server
