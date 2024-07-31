@@ -133,6 +133,7 @@ local plugins = {
         "mypy",
         "nimlsp",
         "perlnavigator",
+        "prettier",
         "pyright",
         "ruff",
         "rust-analyzer",
@@ -162,6 +163,7 @@ local plugins = {
       -- Define your formatters
       formatters_by_ft = {
         python = { "isort", "black", "ruff" },
+        html = { "prettier" },
         -- Use the "_" filetype to run formatters on filetypes that don't
         -- have other formatters configured.
         ["_"] = { "trim_whitespace" },
