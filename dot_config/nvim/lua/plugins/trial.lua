@@ -193,14 +193,6 @@ local plugins = {
   },
 
   {
-    -- [github](https://github.com/sindrets/diffview.nvim)
-    -- Single tabpage interface for easily cycling through diffs for all modified files for any git rev.
-    -- NOTE: Could this replace VCSVimDiff?
-    "sindrets/diffview.nvim",
-    keys = { { "<leader>gd", "<cmd>DiffviewOpen<cr>", desc = "DiffView a replacement for VCSVimDiff" } },
-  },
-
-  {
     -- [github](https://github.com/utilyre/barbecue.nvim)
     -- This is a VS Code like winbar that uses nvim-navic in order to get LSP context from your language server.
     -- Adds a bar at the top of the window like this:

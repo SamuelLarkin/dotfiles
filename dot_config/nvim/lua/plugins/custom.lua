@@ -261,6 +261,22 @@ local plugins = {
     },
     event = "VeryLazy",
   },
+
+  {
+    -- [github](https://github.com/sindrets/diffview.nvim)
+    -- Single tabpage interface for easily cycling through diffs for all modified files for any git rev.
+    -- NOTE: Could this replace VCSVimDiff?
+    "sindrets/diffview.nvim",
+    keys = { { "<leader>gd", "<cmd>DiffviewOpen<cr>", desc = "DiffView a replacement for VCSVimDiff" } },
+    event = "VeryLazy",
+    opts = {
+      file_panel = {
+        win_config = { -- See |diffview-config-win_config|
+          position = "right",
+        },
+      },
+    },
+  },
 }
 
 return plugins
