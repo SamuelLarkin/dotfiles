@@ -99,13 +99,13 @@ shopt -s globstar
 shopt -s direxpand
 
 # Enable zoxide
-which zoxide &> /dev/null && eval "$(zoxide init bash)"
+command -v zoxide &> /dev/null && eval "$(zoxide init bash)"
 
 # Enable starship prompt
-which starship &> /dev/null && eval "$(starship init bash)"
+command -v starship &> /dev/null && eval "$(starship init bash)"
 
 # Enable fzf completion and key-bindings.
-which fzf &> /dev/null && fzf --bash &> /dev/null && eval "$(fzf --bash)"
+command -v fzf &> /dev/null && fzf --bash &> /dev/null && eval "$(fzf --bash)"
 
 # bat
 # [Why use command instead of which](https://stackoverflow.com/a/677212)
