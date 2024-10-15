@@ -1,0 +1,52 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# Replace the '❯' symbol in the prompt with '➜'
+[character] # The name of the module we are configuring is 'character'
+success_symbol = '[➜](bold green)' # The 'success_symbol' segment is being set to '➜' with the color 'bold green'
+
+[conda]
+format = '[\[$symbol$environment\]]($style)'
+
+[git_status]
+ahead = '⇡${count}'
+behind = '⇣${count}'
+conflicted = '⚔️'
+deleted = '🗑'
+diverged = '🔱⇡${ahead_count}⇣${behind_count}'
+modified = '📝'
+renamed = '👅'
+staged = '[++\($count\)](green)'
+stashed = '📦'
+untracked = '🤷'
+up_to_date = '✓'
+
+[golang]
+format = '[\[$symbol($version)\]]($style)'
+
+[hostname]
+ssh_symbol = '🌐'
+
+[lua]
+format = '[\[$symbol($version)\]]($style)'
+
+[nim]
+format = '[\[$symbol($version)\]]($style)'
+
+[nodejs]
+format = '[\[$symbol($version)\]]($style)'
+
+[os]
+disabled = true
+
+[package]
+format = '[\[$symbol($version)\]]($style)'
+
+[python]
+format = '[\[${symbol}${pyenv_prefix}(${version})(\( $virtualenv\))\]]($style)'
+
+[rust]
+format = '[\[$symbol($version)\]]($style)'
+
+[username]
+format = '[$user]($style)@'
