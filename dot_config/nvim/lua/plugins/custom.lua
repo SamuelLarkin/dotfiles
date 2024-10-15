@@ -181,8 +181,8 @@ local plugins = {
         -- [Options](https://github.com/JohnnyMorganz/StyLua#options)
         stylua = {
           prepend_args = { "--indent-type", "Spaces", "--indent-width", "2" },
+        },
       },
-    },
     },
   },
 
@@ -273,6 +273,26 @@ local plugins = {
       file_panel = {
         win_config = { -- See |diffview-config-win_config|
           position = "right",
+        },
+      },
+    },
+  },
+
+  {
+    -- [nvim-tree.lua](https://github.com/nvim-tree/nvim-tree.lua)
+    -- A file explorer tree for neovim written in lua.
+    "nvim-neo-tree/neo-tree.nvim",
+    opts = {
+      event_handlers = {
+        {
+          -- [Auto Close on Open File](https://github.com/nvim-neo-tree/neo-tree.nvim/wiki/Recipes#auto-close-on-open-file)
+          event = "file_open_requested",
+          handler = function()
+            -- auto close
+            -- vim.cmd("Neotree close")
+            -- OR
+            require("neo-tree.command").execute({ action = "close" })
+          end,
         },
       },
     },
