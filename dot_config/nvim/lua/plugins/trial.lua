@@ -6,6 +6,7 @@ local plugins = {
       defaults = {
         mode = { "n", "v" },
         ["<leader>t"] = { name = "+trial" },
+        ["<leader>r"] = { name = "+refactoring" },
       },
     },
   },
@@ -251,6 +252,69 @@ local plugins = {
     config = function()
       require("refactoring").setup()
     end,
+    keys = {
+      -- Extract function supports only visual mode
+      {
+        "<leader>re",
+        function()
+          require("refactoring").refactor("Extract Function")
+        end,
+        mode = { "x" },
+        desc = "Extract Function",
+      },
+      {
+        "<leader>rf",
+        function()
+          require("refactoring").refactor("Extract Function To File")
+        end,
+        mode = { "x" },
+        desc = "Extract Function to File",
+      },
+      -- Extract variable supports only visual mode
+      {
+        "<leader>rv",
+        function()
+          require("refactoring").refactor("Extract Variable")
+        end,
+        mode = { "x" },
+        desc = "Extract Variable",
+      },
+      -- Inline func supports only normal
+      {
+        "<leader>rI",
+        function()
+          require("refactoring").refactor("Inline Function")
+        end,
+        mode = { "n" },
+        desc = "Extract Inline Function",
+      },
+      -- Inline var supports both normal and visual mode
+      {
+        "<leader>ri",
+        function()
+          require("refactoring").refactor("Inline Variable")
+        end,
+        mode = { "n", "x" },
+        desc = "Extract Inline Variable",
+      },
+      -- Extract block supports only normal mode
+      {
+        "<leader>rb",
+        function()
+          require("refactoring").refactor("Extract Block")
+        end,
+        mode = { "n" },
+        desc = "Extract Block",
+      },
+      {
+        "<leader>rbf",
+        function()
+          require("refactoring").refactor("Extract Block To File")
+        end,
+        mode = { "n" },
+        desc = "Extract Block to File",
+      },
+    },
   },
 
   {
