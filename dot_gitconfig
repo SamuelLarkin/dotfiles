@@ -14,9 +14,10 @@
 
 [alias]
    # Difftastic Enhancements
-   difft   = "!f() { GIT_EXTERNAL_DIFF=difft git diff $@; }; f"  # Use `difftastic` when diffing.
-   logt    = "!f() { GIT_EXTERNAL_DIFF=difft git log -p --ext-diff $@; }; f"  # `git logt` to show `git log -p` with `difftastic`.
-   showt   = "!f() { GIT_EXTERNAL_DIFF=difft git show --ext-diff $@; }; f"  # Use `difftastic` to show commit's patch.
+   # [difftastic - Regular Usage](https://difftastic.wilfred.me.uk/git.html#regular-usage)
+   difft = "-c diff.external=difft diff"
+   logt  = "-c diff.external=difft log --ext-diff"
+   showt = "-c diff.external=difft show --ext-diff"
 
    ejlog   = log --color --format=ej --graph  # Eric denser than dense log output.
    ign     = ls-files --exclude-standard --ignored --others  # Show files ignored by git
