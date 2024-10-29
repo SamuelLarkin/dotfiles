@@ -199,8 +199,11 @@
 [credential]
    helper = cache --timeout=3600
 
+[diff]
+   colorMoved = default
+
 [fetch]
-   prune = true
+   prune = true   # Always prune on git fetch
 
 [filter "lfs"]
    clean    = git-lfs clean %f
@@ -217,10 +220,10 @@
    decorate     = true
 
 [merge]
-   stat = true
+   conflictstyle = diff3
    diff = vimdiff
+   stat = true
    tool = vimdiff
-   #tool = diffconflicts
 
 [mergetool "diffconflicts"]
    cmd = vim -c DiffConflicts \"$MERGED\" \"$BASE\" \"$LOCAL\" \"$REMOTE\"
@@ -253,4 +256,4 @@
 ; file (if the condition is true); their location is not
 ; affected by the condition
 [includeIf "gitdir:~/.config/git/"]
-	path = delta
+   path = delta
