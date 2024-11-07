@@ -191,23 +191,6 @@ local plugins = {
   },
 
   {
-    -- [github](https://github.com/utilyre/barbecue.nvim)
-    -- This is a VS Code like winbar that uses nvim-navic in order to get LSP context from your language server.
-    -- Adds a bar at the top of the window like this:
-    -- ~  .config  nvim  lua  plugins   testing.lua   plugins   [3]   dependencies   [1]   dependencies
-    "utilyre/barbecue.nvim",
-    name = "barbecue",
-    version = "*",
-    dependencies = {
-      "SmiteshP/nvim-navic",
-      "nvim-tree/nvim-web-devicons", -- optional dependency
-    },
-    opts = {
-      -- configurations go here
-    },
-  },
-
-  {
     -- [github](https://github.com/mrcjkb/rustaceanvim)
     -- Supercharge your Rust experience in Neovim! A heavily modified fork of rust-tools.nvim.
     "mrcjkb/rustaceanvim",
