@@ -2,9 +2,12 @@ local plugins = {
   {
     -- Create a Which-Key-Group to hold the trial key mapping.
     "folke/which-key.nvim",
-    keys = {
-      { "<leader>r", group = "refactoring", mode = { "n", "v" } },
-      { "<leader>t", group = "trial", mode = { "n", "v" } },
+    opts = {
+      defaults = {
+        mode = { "n", "v" },
+        ["<leader>t"] = { name = "+trial" },
+        ["<leader>r"] = { name = "+refactoring" },
+      },
     },
   },
 
