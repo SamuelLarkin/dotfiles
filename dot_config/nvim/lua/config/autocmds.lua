@@ -17,7 +17,7 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 
 vim.api.nvim_create_autocmd("FileType", {
   desc = "Disable conceal and minipairs for MarkDown files",
-  group = vim.api.nvim_create_augroup("SamuelNoConceal", {clear=true}),
+  group = vim.api.nvim_create_augroup("SamuelNoConceal", { clear = true }),
   pattern = "markdown",
   callback = function()
     vim.opt_local.conceallevel = 0
@@ -25,5 +25,16 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.b.minipairs_disable = true
     -- TODO: We should only disable backtick "`"
     -- require('mini.pairs').map_buf(0, 'i', '`', {action = 'closeopen', pair = '``'})
+  end,
+})
+
+-- [disabled autoformat for bash files](https://github.com/LazyVim/LazyVim/discussions/4792#discussioncomment-11260090)
+-- We can trigger formatting using `<leader>uF` or do a one time formatting using `<leader>cf`.
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "sh",
+  group = vim.api.nvim_create_augroup("bash_no_format", {}),
+  desc = "Disable formatting for bash",
+  callback = function()
+    vim.b.autoformat = false
   end,
 })
