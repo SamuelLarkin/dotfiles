@@ -5,8 +5,15 @@
 [character] # The name of the module we are configuring is 'character'
 success_symbol = '[➜](bold green)' # The 'success_symbol' segment is being set to '➜' with the color 'bold green'
 
+[cmd_duration]
+# [fredericrous](https://github.com/fredericrous/dotfiles/blob/main/private_dot_config/starship.toml)
+style = "#f9a600"
+# format = ' took [$duration]($style)'
+format = "[](fg:black bg:#f9a600)[$duration](bg:$style fg:black)[](fg:$style)"
+
 [conda]
 format = '[\[$symbol$environment\]]($style)'
+# style = "fg:black bg:#eb9606"
 
 [git_status]
 ahead = '⇡${count}'
@@ -20,12 +27,15 @@ staged = '[++\($count\)](green)'
 stashed = '📦'
 untracked = '🤷'
 up_to_date = '✓'
+style = "fg:#edbeec bold"
+# style = "fg:black bg:red bold"
 
 [golang]
 format = '[\[$symbol($version)\]]($style)'
 
 [hostname]
 ssh_symbol = '🌐'
+style = 'fg:#eff294'
 
 [lua]
 format = '[\[$symbol($version)\]]($style)'
@@ -43,7 +53,10 @@ disabled = true
 format = '[\[$symbol($version)\]]($style)'
 
 [python]
-format = '[\[${symbol}${pyenv_prefix}(${version})(\( $virtualenv\))\]]($style)'
+symbol = '🐍 '
+style = 'fg:black bg:#eb9606'
+# format = '[\[${symbol}${pyenv_prefix}(${version})(\( $virtualenv\))\]]($style)'
+format = '[](fg:black bg:#eb9606)[$symbol$pyenv_prefix$version$virtualenv]($style)[](fg:#eb9606)'
 
 [rust]
 format = '[\[$symbol($version)\]]($style)'
