@@ -4,9 +4,8 @@ local plugins = {
     "folke/which-key.nvim",
     opts = {
       spec = {
-        mode = { "n", "v" },
-        ["<leader>t"] = { name = "+trial" },
-        ["<leader>r"] = { name = "+refactoring" },
+        { "<leader>r", group = "refactoring", mode = { "n", "v" } },
+        { "<leader>t", group = "trial", mode = { "n", "v" } },
       },
     },
   },
