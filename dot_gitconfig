@@ -36,7 +36,7 @@
      | fzf \
          --header \"Checkout Recent Branch\" \
          --preview-window=\"top:85%\" \
-         --preview \"GIT_EXTERNAL_DIFF='difft --color always' git diff {1}\" \
+         --preview \"git -c diff.external='difft --color=always' diff {1}\" \
      | xargs --no-run-if-empty git checkout; \
      }; f"
    switch-branch2   = "!f(){ \
@@ -44,7 +44,7 @@
      | fzf \
          --header \"Checkout Recent Branch\" \
          --preview-window=\"top:85%\" \
-         --preview \"git diff --color=always {1} | delta\" \
+         --preview \"git diff {1} | delta\" \
      | xargs --no-run-if-empty git checkout; \
      }; f"
 
