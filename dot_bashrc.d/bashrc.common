@@ -68,6 +68,9 @@ command -v zoxide &> /dev/null && eval "$(zoxide init bash)"
 # Enable starship prompt
 command -v starship &> /dev/null && eval "$(starship init bash)"
 
+# Enable github completions
+command -v gh &> /dev/null && eval "$(gh completion  --shell bash)"
+
 # FzF
 if command -v fzf &> /dev/null; then
    # Enable fzf completion and key-bindings.
