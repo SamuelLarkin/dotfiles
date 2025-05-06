@@ -31,20 +31,25 @@
    wd      = diff --color-words # word diff
    cp      = cherry-pick -x # Always add from which commit we cherry-picked
    # [Git Checkout Recent Branch with Search & Preview](https://www.youtube.com/watch?v=lZehYwOfJAs)
-   switch-branch  = "!f(){ \
+   sw = switch-branch-diffstatic
+   switch-branch-diffstatic = "!f(){ \
      git branch --sort=-committerdate \
-     | fzf \
-         --header \"Checkout Recent Branch\" \
-         --preview-window=\"right:85%\" \
-         --preview \"git -c diff.external='difft --color=always' diff {1}\" \
+     | fzf-tmux -p 80%,50% -- \
+         --height=30% \
+         --min-height=20 \
+         --header='Checkout Recent Branch (diffstatic)' \
+         --preview-window='right:75%' \
+         --preview=\"git -c diff.external='difft --color=always' diff {1}\" \
      | xargs --no-run-if-empty git checkout; \
      }; f"
-   switch-branch2   = "!f(){ \
+   switch-branch-delta = "!f(){ \
      git branch --sort=-committerdate \
-     | fzf \
-         --header \"Checkout Recent Branch\" \
-         --preview-window=\"right:85%\" \
-         --preview \"git diff {1} | delta\" \
+     | fzf-tmux -p 80%,50% -- \
+         --height=30% \
+         --min-height=20 \
+         --header='Checkout Recent Branch (delta)' \
+         --preview-window='right:75%' \
+         --preview='git diff {1} | delta' \
      | xargs --no-run-if-empty git checkout; \
      }; f"
 
