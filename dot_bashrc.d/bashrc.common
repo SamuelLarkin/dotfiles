@@ -45,6 +45,9 @@ export HISTTIMEFORMAT="%F %T "
 
 export DOCKER_BUILDKIT=1
 
+# tqdm outputs too much data to log files rendering them unreadable.
+! shopt -q login_shell && export TQDM_MININTERVAL=60
+
 # less options
 export LESSCHARSET=utf-8
 export LESS="--no-init --QUIET --RAW-CONTROL-CHARS --chop-long-lines --ignore-case --search-skip-screen"  # "-XQRSia"
