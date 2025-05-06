@@ -42,7 +42,6 @@ alias makeComparable='sed "s/Files \(.*\) and \(.*\) differ/diff --side-by-side 
 alias parallel='parallel --progress  --eta'
 alias parallel_per_line="\parallel --spreadstdin --recend='\n' --keep-order"
 alias prettyjson="perl -e '\$/=undef; \$a=<STDIN>; use JSON; print JSON->new->pretty->utf8->encode(decode_json(\$a));'"
-alias python_theano='THEANO_FLAGS=mode=FAST_RUN,device=gpu,floatX=float32 python'
 alias qstatl='qstattree larkins | less'
 alias qstatw='qstatdir | egrep home | sort | uniq --count'  # By listing where my jobs are running, it's easier to figure out what projects I'm working on.
 alias rsync='time rsync --progress --exclude=.\*.swp --stats'
