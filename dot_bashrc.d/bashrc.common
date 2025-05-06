@@ -65,14 +65,29 @@ shopt -s globstar
 # STOP FUCKING ESCAPING when tab
 shopt -s direxpand
 
-# Enable zoxide
-command -v zoxide &> /dev/null && eval "$(zoxide init bash)"
-
-# Enable starship prompt
-command -v starship &> /dev/null && eval "$(starship init bash)"
-
 # Enable github completions
 command -v gh &> /dev/null && eval "$(gh completion  --shell bash)"
+
+# Enable starship completions
+command -v starship &> /dev/null && eval "$(starship init bash)"
+
+# Enable zoxide completions
+command -v zoxide &> /dev/null && eval "$(zoxide init bash)"
+
+# bat
+# [Why use command instead of which](https://stackoverflow.com/a/677212)
+if command -v bat &> /dev/null; then
+   # [Use `bat` to display man pages](https://github.com/sharkdp/bat#man)
+   #command -v bat &> /dev/null && export MANPAGER="sh -c 'col --no-backspaces --spaces | bat --language man --plain'"
+   export MANPAGER="sh -c 'sed -u -e \"s/\\x1B\[[0-9;]*m//g; s/.\\x08//g\" | $HOME/.local/bin/bat --plain --language man'"
+
+   # [Using -S inside bat does not chop long lines](https://github.com/sharkdp/bat/issues/2869#issuecomment-2350936581)
+   export BAT_OPTS='--wrap=never'
+   export BAT_PAGER='less +S'
+
+  # Enable bat completions
+  eval "$(bat --completion bash)"
+fi
 
 # FzF
 if command -v fzf &> /dev/null; then
@@ -113,18 +128,6 @@ if command -v fzf &> /dev/null; then
       --preview 'bat -n --color=always {}'
       --color header:italic
       --header 'Press CTRL-/ to preview'"
-fi
-
-# bat
-# [Why use command instead of which](https://stackoverflow.com/a/677212)
-if command -v bat &> /dev/null; then
-   # [Use `bat` to display man pages](https://github.com/sharkdp/bat#man)
-   #command -v bat &> /dev/null && export MANPAGER="sh -c 'col --no-backspaces --spaces | bat --language man --plain'"
-   export MANPAGER="sh -c 'sed -u -e \"s/\\x1B\[[0-9;]*m//g; s/.\\x08//g\" | $HOME/.local/bin/bat --plain --language man'"
-
-   # [Using -S inside bat does not chop long lines](https://github.com/sharkdp/bat/issues/2869#issuecomment-2350936581)
-   export BAT_OPTS='--wrap=never'
-   export BAT_PAGER='less +S'
 fi
 
 
