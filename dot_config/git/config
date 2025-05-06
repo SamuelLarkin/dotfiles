@@ -35,7 +35,7 @@
      git branch --sort=-committerdate \
      | fzf \
          --header \"Checkout Recent Branch\" \
-         --preview-window=\"top:85%\" \
+         --preview-window=\"right:85%\" \
          --preview \"git -c diff.external='difft --color=always' diff {1}\" \
      | xargs --no-run-if-empty git checkout; \
      }; f"
@@ -43,7 +43,7 @@
      git branch --sort=-committerdate \
      | fzf \
          --header \"Checkout Recent Branch\" \
-         --preview-window=\"top:85%\" \
+         --preview-window=\"right:85%\" \
          --preview \"git diff {1} | delta\" \
      | xargs --no-run-if-empty git checkout; \
      }; f"
