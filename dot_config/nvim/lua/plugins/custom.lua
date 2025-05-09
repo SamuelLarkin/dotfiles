@@ -106,6 +106,26 @@ local plugins = {
     opts = {
       linehl = true, -- Toggle with `:Gitsigns toggle_linehl`
       word_diff = true, -- Toggle with `:Gitsigns toggle_word_diff`
+      on_attach = function(buffer)
+        local gs = package.loaded.gitsigns
+
+        local function map(mode, l, r, desc)
+          vim.keymap.set(mode, l, r, { buffer = buffer, desc = desc })
+        end
+
+        -- map("n", "<leader>ghd", gs.diffthis)
+        -- map("n", "<leader>ghD", function()
+        --   gs.diffthis("~")
+        -- end)
+
+        map("n", "<leader>ghQ", function()
+          gs.setqflist("all")
+        end, "Set QF List All")
+        map("n", "<leader>ghq", gs.setqflist, "Set QF list")
+
+        map({ "n" }, "<leader>gd", ":rightbelow Gitsigns diffthis<CR>", "Diff This")
+        map({ "n" }, "<leader>gD", ":rightbelow Gitsigns diffthis ~<CR>", "Diff This ~")
+      end,
     },
   },
 
@@ -267,11 +287,22 @@ local plugins = {
     -- Single tabpage interface for easily cycling through diffs for all modified files for any git rev.
     -- NOTE: Could this replace VCSVimDiff?
     "sindrets/diffview.nvim",
-    keys = { { "<leader>gd", "<cmd>DiffviewOpen<cr>", desc = "DiffView a replacement for VCSVimDiff" } },
+    keys = { { "<leader>gz", "<CMD>DiffviewOpen<CR>", desc = "DiffView IDE" } },
     event = "VeryLazy",
     opts = {
+      view = {
+        default = {
+          layout = "diff2_horizontal",
+        },
+      },
+      win_config = {
+        type = "split",
+        position = "right",
+        width = 40,
+      },
       file_panel = {
         win_config = { -- See |diffview-config-win_config|
+          -- File navigator on the right side
           position = "right",
         },
       },
