@@ -59,9 +59,6 @@ alias xquery='java -cp ${SAXON_HOME}/saxon9.jar net.sf.saxon.Query'
 alias zcat='zcat --force'
 
 
-export TIME="\ncmd: %C\nreal: %e\nuser: %U\nsys: %S\n"
-
-
 
 function xquery2 {
    # xquery2 query file

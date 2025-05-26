@@ -27,6 +27,8 @@ function setPrompt {
 }
 setPrompt
 
+export TIME="\ncmd: %C\nreal: %e\nuser: %U\nsys: %S\n"
+
 export GIT_PS1_SHOWDIRTYSTATE=1
 #export GIT_PS1_SHOWUPSTREAM="auto"
 export LS_OPTIONS="--color"
@@ -93,7 +95,7 @@ fi
 if command -v fzf &> /dev/null; then
    # Enable fzf completion and key-bindings.
    fzf --bash &> /dev/null && eval "$(fzf --bash)"
- 
+
    # [fzf Web Color Picker](https://minsw.github.io/fzf-color-picker/)
    declare -a FZF_COLORS=(
       --color=fg:#ccc8c8,bg:#2f1642,hl:#5f87af
