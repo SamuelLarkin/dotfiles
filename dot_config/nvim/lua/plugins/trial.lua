@@ -331,6 +331,13 @@ local plugins = {
   },
 
   {
+    "snacks.nvim",
+    opts = {
+      scroll = { enabled = false },
+    },
+  },
+
+  {
     -- [ollama.nvim](https://github.com/nomnivore/ollama.nvim)
     -- A plugin for managing and integrating your ollama workflows in neovim.
     "nomnivore/ollama.nvim",
