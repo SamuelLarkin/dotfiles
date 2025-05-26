@@ -219,6 +219,9 @@ function MAKE {
 ########################################
 # DIFF
 function diffdir {
+   local -r left_side=${1:?LEFT SIDE?}
+   local -r right_side=${2:?RIGHT SIDE?}
+
    diff \
       --brief \
       --exclude=\*.deps\* \
@@ -227,23 +230,27 @@ function diffdir {
       --ignore-all-space \
       --recursive \
       -P \
-      $1 \
-      $2 \
+      $left_side \
+      $right_side \
    | sed "s/Files \(.*\) and \(.*\) differ/vimdiff \1 \2/"
 }
 
 
 
 function diffdircode {
+   local -r left_side=${1:?LEFT SIDE?}
+   local -r right_side=${2:?RIGHT SIDE?}
+
    local __diff='vimdiff'
    if [[ $1 =~ "-(.*)" ]]; then
       local __diff="${BASH_REMATCH[1]}"
       shift
    fi
    if [ -f ".diff.exclude" ]; then
-      local __excludes="--exclude-from=.diff.exclude" 
+      local -r __excludes="--exclude-from=.diff.exclude"
    fi
    diff \
+      --strip-trailing-cr \
       --brief \
       --recursive \
       $__excludes \
@@ -265,8 +272,8 @@ function diffdircode {
       --exclude=.#\* \
       --exclude=\*.pyc \
       --exclude=\*__pycache__\* \
-      $1 \
-      $2 \
+      $left_side \
+      $right_side \
    | sed "s/Files \(.*\) and \(.*\) differ/$__diff \1 \2/" \
    | sed "s/^\(Only in\)/\t\1/" \
    | perl -nle '
