@@ -19,7 +19,7 @@ alias sjobResources='scontrol show jobid -dd --json'
 # The really solution is to change TERM in putty.
 #alias tmux='TERM=xterm-256color tmux'
 #alias vimD='vim +":VCSVimDiff"'
-#alias xmlviewdiff="vimdiff -R +':silent 1,\$ !xmllint --format --recover - 2>/dev/null'"
+#alias xmlviewdiff="vim -d -R +':silent 1,\$ !xmllint --format --recover - 2>/dev/null'"
 alias curljson="curl --header 'Content-type: application/json'"
 alias df="df --human-readable"
 alias disown='disown -h'
@@ -48,7 +48,7 @@ alias rsync='time rsync --progress --exclude=.\*.swp --stats'
 alias ssh="ssh -A -X"
 alias sshFix="source ~/.ssh/fixSSH"
 alias tiga='tig --all'
-alias viewdiff='vimdiff -R'
+alias viewdiff='vim -d -R'
 alias viewpar='vim -R -O +":windo :set scrollbind nowrap"'
 alias vimpar='vim -O +":windo :set scrollbind nowrap"'
 alias wc='wc --lines'
@@ -229,7 +229,7 @@ function diffdir {
       -P \
       $left_side \
       $right_side \
-   | sed "s/Files \(.*\) and \(.*\) differ/vimdiff \1 \2/"
+   | sed "s/Files \(.*\) and \(.*\) differ/vim -d \1 \2/"
 }
 
 
@@ -238,7 +238,7 @@ function diffdircode {
    local -r left_side=${1:?LEFT SIDE?}
    local -r right_side=${2:?RIGHT SIDE?}
 
-   local __diff='vimdiff'
+   local __diff='vim -d'
    if [[ $1 =~ "-(.*)" ]]; then
       local __diff="${BASH_REMATCH[1]}"
       shift
@@ -303,7 +303,7 @@ function viewdiffhead {
       [[ -d "$f" ]] && f="$f/$(basename $first)"
       cmd+=" <(zcat --force $f | head -$size)"
    done
-   [[ -n "$cmd" ]] && eval "vimdiff -R $cmd"
+   [[ -n "$cmd" ]] && eval "vim -d -R $cmd"
 }
 
 
@@ -318,7 +318,7 @@ function viewdifftail {
       [[ -d "$f" ]] && f="$f/$(basename $first)"
       cmd+=" <(zcat --force $f | tail --lines=$size)"
    done
-   [[ -n "$cmd" ]] && eval " vimdiff -R $cmd"
+   [[ -n "$cmd" ]] && eval " vim -d -R $cmd"
 }
 
 
@@ -339,17 +339,17 @@ function vimparhead {
 
 
 # for .gc.ca compare french vs english and align the documents.
-alias viewdiffpa='vimdiff -R +"set diffexpr=DiffPa()"'
+alias viewdiffpa='vim -d -R +"set diffexpr=DiffPa()"'
 
 # for .gc.ca compare to alignments.
 #function vimdiffal {
-#   AL_DIFF=${AL_DIFF:-"al-diff.py -v -m '<PORTAGE_DOCUMENT_END>'"} AL1=$3 AL2=$4 vimdiff -R +"set diffexpr=DiffAligment()" +"set diffopt=filler,context:0" $1 $2
+#   AL_DIFF=${AL_DIFF:-"al-diff.py -v -m '<PORTAGE_DOCUMENT_END>'"} AL1=$3 AL2=$4 vim -d -R +"set diffexpr=DiffAligment()" +"set diffopt=filler,context:0" $1 $2
 #}
 
 
 
 function viewdiffpa2 {
-   vimdiff -R +"set diffexpr=DiffPa2()" +"set diffopt=filler,context:1" $@
+   vim -d -R +"set diffexpr=DiffPa2()" +"set diffopt=filler,context:1" $@
 }
 
 
@@ -379,7 +379,7 @@ function xmldiff {
    for f in $@; do
       __xmldiff+=" <(tidy -xml -utf8 < $f)"
    done
-   [[ -n "$__xmldiff" ]] && eval "vimdiff -R $__xmldiff"
+   [[ -n "$__xmldiff" ]] && eval "vim -d -R $__xmldiff"
 }
 
 
@@ -404,5 +404,5 @@ function jqdiff {
    declare -ar filter=(${@:-.})
 
    [[ -d $rhs ]] && rhs="$rhs/$(basename $lhs)"
-   vimdiff <(jq --sort-keys ${filter[@]} $lhs) <(jq --sort-keys ${filter[@]} $rhs)
+   vim -d <(jq --sort-keys ${filter[@]} $lhs) <(jq --sort-keys ${filter[@]} $rhs)
 }
