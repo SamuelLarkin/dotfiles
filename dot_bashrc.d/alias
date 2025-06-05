@@ -2,9 +2,9 @@
 
 # Slurm
 #alias squeue='squeue --format="%.8i %.9P %.40j %.8u %.2t %.10M %.6D %R"'
-alias squeue='squeue --sort=ti --format="%.8i %30j %.8u %.2t %.10M %.6D %20R %18V %k"'
+alias squeue='squeue --sort=ti --format="%.8i %30j %.8u %.2t %.10M %.6D %20R %19V %k"'
 alias squeueme='squeue --user $USER'
-alias squeue_dependencies='squeueme --format="%.8i %30j %.8u %.2t %.10M %.6D %16R %18V %E %k"'
+alias squeue_dependencies='squeueme --format="%.8i %30j %.8u %.2t %.10M %.6D %16R %19V %E %k"'
 alias squeue_where="squeueme --format $'%i\t %.2t %30j %Z'"
 alias sbatch='sbatch --mail-user=Samuel.Larkin@cnrc-nrc.gc.ca  --mail-type=END,FAIL'
 alias sresources='sinfo --format="%20N %10C %10m %25f %10G"'
