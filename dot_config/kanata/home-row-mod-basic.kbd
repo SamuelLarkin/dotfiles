@@ -5,28 +5,73 @@
 (defcfg
   process-unmapped-keys yes
 )
-(defsrc
-  a  s  d  f  g   h  j  k  l  ;
-)
+
 (defvar
   ;; Note: consider using different time values for your different fingers.
   ;; For example, your pinkies might be slower to release keys and index
   ;; fingers faster.
   tap-time 200
-  hold-time 250
+  hold-time 200
 )
+
+(defsrc
+  ;;a  s  d  f  g   h  j  k  l  ;
+)
+
+#|
 (defalias
-  a (tap-hold $tap-time $hold-time a lmet)
-  s (tap-hold $tap-time $hold-time s lalt)
-  d (tap-hold $tap-time $hold-time d lctl)
-  f (tap-hold $tap-time $hold-time f lsft)
-  g (tap-hold $tap-time $hold-time g lalt)
-  h (tap-hold $tap-time $hold-time h ralt)
-  j (tap-hold $tap-time $hold-time j rsft)
-  k (tap-hold $tap-time $hold-time k rctl)
-  l (tap-hold $tap-time $hold-time l ralt)
-  ; (tap-hold $tap-time $hold-time ; rmet)
+  a (tap-hold-press $tap-time $hold-time a lmet)
+  s (tap-hold-press $tap-time $hold-time s lalt)
+  d (tap-hold-press $tap-time $hold-time d lctl)
+  f (tap-hold-press $tap-time $hold-time f lsft)
+  g (tap-hold-press $tap-time $hold-time g lalt)
+  h (tap-hold-press $tap-time $hold-time h ralt)
+  j (tap-hold-press $tap-time $hold-time j rsft)
+  k (tap-hold-press $tap-time $hold-time k rctl)
+  l (tap-hold-press $tap-time $hold-time l ralt)
+  ; (tap-hold-press $tap-time $hold-time ; rmet)
 )
 (deflayer base
   @a  _  @d  @f  @g   @h  @j  @k  _  @;
+)
+|#
+
+
+(deflayermap (base)
+  ;; Home Mode Row
+  a (tap-hold-press $tap-time $hold-time a lmet)
+  s (tap-hold-press $tap-time $hold-time s lalt)
+  d (tap-hold-press $tap-time $hold-time d lctl)
+  f (tap-hold-press $tap-time $hold-time f lsft)
+  g (tap-hold-press $tap-time $hold-time g lalt)
+  h (tap-hold-press $tap-time $hold-time h ralt)
+  j (tap-hold-press $tap-time $hold-time j rsft)
+  k (tap-hold-press $tap-time $hold-time k rctl)
+  l (tap-hold-press $tap-time $hold-time l ralt)
+  ; (tap-hold-press $tap-time $hold-time ; rmet)
+
+  ;; Arrow Layer
+  r (tap-hold 200 200 r (layer-toggle arrows))  ;; tap: r      hold: arrows layer
+  v (tap-hold 200 200 v (layer-toggle parenthesis))  ;; tap: v      hold: parenthesis layer
+)
+
+(deflayermap (arrows)
+  h left
+  j down
+  k up
+  l right
+
+  u home
+  i pgup
+  m end
+  , pgdn
+)
+
+(deflayermap (parenthesis)
+  u (unicode r#"("#)
+  i (unicode r#")"#)
+  j (unicode r#"{"#)
+  k (unicode r#"}"#)
+  m [
+  , ]
 )
