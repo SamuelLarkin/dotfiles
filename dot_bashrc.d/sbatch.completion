@@ -51,7 +51,7 @@ _sbatch()
     # local -r slurm=$(compgen -c | grep 'slurm$' | sk)
     # local -r slurm=$(compgen -c | sk)
     local -r slurm=$(compgen -c -- "$cur" | grep 'slurm$')  # This works
-    COMPREPLY=( ${COMPREPLY[@]:-} $slurm )
+    COMPREPLY=( ${COMPREPLY[@]:-} "$slurm" )
     # COMPREPLY=( ${COMPREPLY[@]:-} $(compgen -c | grep 'slurm$' | sk --no-multi --preview 'bat $(which {})') )
 
     ((args == 1)) && return
