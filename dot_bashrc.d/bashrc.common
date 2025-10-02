@@ -73,6 +73,9 @@ command -v gh &> /dev/null && eval "$(gh completion  --shell bash)"
 # Enable starship completions
 command -v starship &> /dev/null && eval "$(starship init bash)"
 
+# Enable yq completions
+command -v yq &> /dev/null && eval "$(yq shell-completion bash)"
+
 # Enable zoxide completions
 command -v zoxide &> /dev/null && eval "$(zoxide init bash)"
 
