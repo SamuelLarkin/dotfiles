@@ -216,7 +216,8 @@
    required = true
 
 [filter "clean_ipynb"]
-   clean = ipynb_drop_output.py
+   # https://gist.github.com/pbugnion/ea2797393033b54674af?permalink_comment_id=2189515#gistcomment-2189515
+   clean = jq --indent 1 --monochrome-output '. + if .metadata.git.suppress_outputs | not then { cells: [.cells[] | . + if .cell_type == \"code\" then { outputs: [], execution_count: null } else {} end ] } else {} end'
    smudge = cat
 
 [log]
