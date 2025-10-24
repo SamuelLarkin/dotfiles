@@ -169,7 +169,7 @@ local plugins = {
   {
     -- [github](https://github.com/echasnovski/mini.colors)
     -- Tweak and save any color scheme. Part of 'mini.nvim' library.
-    "echasnovski/mini.colors",
+    "nvim-mini/mini.colors",
     version = false,
   },
 

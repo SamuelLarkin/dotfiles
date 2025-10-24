@@ -168,7 +168,7 @@ local plugins = {
     -- Mason
     -- [github](https://github.com/williamboman/mason.nvim)
     -- Portable package manager for Neovim that runs everywhere Neovim runs. Easily install and manage LSP servers, DAP servers, linters, and formatters.
-    "williamboman/mason.nvim",
+    "mason-org/mason.nvim",
     opts = {
       ensure_installed = {
         "awk-language-server",
@@ -306,7 +306,7 @@ local plugins = {
     -- [github](https://github.com/echasnovski/mini.indentscope)
     -- Neovim Lua plugin to visualize and operate on indent scope. Part of 'mini.nvim' library.
     -- NOTE: Wanted to use `[i` to progressively expand a selection based on indentation but this does NOT work
-    "echasnovski/mini.indentscope",
+    "nvim-mini/mini.indentscope",
     opts = {
       options = {
         -- Whether to use cursor column when computing reference indent.
