@@ -1,4 +1,4 @@
-# vim:nowrap:
+# vim:nowrap:sw=3:ts=3:expandtab:
 
 # NOTES
 # What is git mergetool's command: git config --global mergetool.vimdiff3.cmd 'vim -f -d -c "wincmd J" "$MERGED" "$LOCAL" "$BASE" "$REMOTE"'
