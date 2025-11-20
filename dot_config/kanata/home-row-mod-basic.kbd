@@ -15,11 +15,10 @@
   long-hold-time 400
 )
 
-#|
+;; Exactly one defsrc must exist.
 (defsrc
   a  s  d  f  g   h  j  k  l  ;
 )
-|#
 
 #|
 (defalias
