@@ -95,44 +95,47 @@ if command -v bat &> /dev/null; then
 fi
 
 # FzF
-if command -v fzf &> /dev/null; then
-   # Enable fzf completion and key-bindings.
-   fzf --bash &> /dev/null && eval "$(fzf --bash)"
+if [[ -z "$SLURM_JOB_ID" ]]; then
+# NOTE: Using fzf for CTRL-R on a node is broken.
+  if command -v fzf &> /dev/null; then
+    # Enable fzf completion and key-bindings.
+    fzf --bash &> /dev/null && eval "$(fzf --bash)"
 
-   # [fzf Web Color Picker](https://minsw.github.io/fzf-color-picker/)
-   declare -a FZF_COLORS=(
-      --color=fg:#ccc8c8,bg:#2f1642,hl:#5f87af
-      --color=fg+:#d0d0d0,bg+:#71339e,hl+:#5fd7ff
-      --color=info:#afaf87,prompt:#d7005f,pointer:#af5fff
-      --color=marker:#87ff00,spinner:#af5fff,header:#87afaf
-      )
+    # [fzf Web Color Picker](https://minsw.github.io/fzf-color-picker/)
+    declare -a FZF_COLORS=(
+        --color=fg:#ccc8c8,bg:#2f1642,hl:#5f87af
+        --color=fg+:#d0d0d0,bg+:#71339e,hl+:#5fd7ff
+        --color=info:#afaf87,prompt:#d7005f,pointer:#af5fff
+        --color=marker:#87ff00,spinner:#af5fff,header:#87afaf
+        )
 
-   # FzF preview related configuration
-   # [Keyboard bindings for scrolling preview window?](https://github.com/junegunn/fzf.vim/issues/358#issuecomment-841665170)
-   declare -a FZF_BINDINGS=(
-      --bind ctrl-/:toggle-preview
-      --bind ctrl-y:preview-up,ctrl-e:preview-down
-      --bind ctrl-b:preview-page-up,ctrl-f:preview-page-down
-      --bind ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down
-      --bind shift-up:preview-top,shift-down:preview-bottom
-      --bind alt-up:half-page-up,alt-down:half-page-down
-      )
+    # FzF preview related configuration
+    # [Keyboard bindings for scrolling preview window?](https://github.com/junegunn/fzf.vim/issues/358#issuecomment-841665170)
+    declare -a FZF_BINDINGS=(
+        --bind ctrl-/:toggle-preview
+        --bind ctrl-y:preview-up,ctrl-e:preview-down
+        --bind ctrl-b:preview-page-up,ctrl-f:preview-page-down
+        --bind ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down
+        --bind shift-up:preview-top,shift-down:preview-bottom
+        --bind alt-up:half-page-up,alt-down:half-page-down
+        )
 
-   export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS" ${FZF_COLORS[@]} ${FZF_BINDINGS[@]}"
+    export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS" ${FZF_COLORS[@]} ${FZF_BINDINGS[@]}"
 
-   # [Key bindings for command-line](https://github.com/junegunn/fzf#key-bindings-for-command-line)
-   export FZF_ALT_C_OPTS="--preview 'tree -C {}'"
-   export FZF_CTRL_R_OPTS="
-      --bind 'ctrl-/:toggle-preview'
-      --preview 'echo {}'
-      --preview-window up:3:hidden:wrap
-      --color header:italic
-      --header 'Press CTRL-/ to see a command preview'"
-   export FZF_CTRL_T_OPTS="
-      --bind 'ctrl-/:change-preview-window(down|hidden|)'
-      --preview 'bat -n --color=always {}'
-      --color header:italic
-      --header 'Press CTRL-/ to preview'"
+    # [Key bindings for command-line](https://github.com/junegunn/fzf#key-bindings-for-command-line)
+    export FZF_ALT_C_OPTS="--preview 'tree -C {}'"
+    export FZF_CTRL_R_OPTS="
+        --bind 'ctrl-/:toggle-preview'
+        --preview 'echo {}'
+        --preview-window up:3:hidden:wrap
+        --color header:italic
+        --header 'Press CTRL-/ to see a command preview'"
+    export FZF_CTRL_T_OPTS="
+        --bind 'ctrl-/:change-preview-window(down|hidden|)'
+        --preview 'bat -n --color=always {}'
+        --color header:italic
+        --header 'Press CTRL-/ to preview'"
+  fi
 fi
 
 
