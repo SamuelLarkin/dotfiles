@@ -10,6 +10,21 @@ alias sbatch='sbatch --mail-user=Samuel.Larkin@cnrc-nrc.gc.ca  --mail-type=END,F
 alias sresources='sinfo --format="%20N %10C %10m %25f %10G"'
 alias sjobResources='scontrol show jobid -dd --json'
 alias srun_debug='srun --job-name=DEBUGGING --gres=gpu:1 --nodes=1 --ntasks-per-node=1 --cpus-per-task=6 --mem=16G'
+function sconnect {
+  local -r jobid=${1:?JOBID?}
+  local -r ngpus=${2:-0}
+
+  srun \
+  --overlap \
+  --oversubscribe \
+  --pty \
+  --gres=gpu:$ngpus \
+  --nodes 1 \
+  --ntasks 1 \
+  --mem-per-cpu=0 \
+  --jobid $jobid \
+  /bin/bash -l
+}
 
 
 [[ -x /usr/bin/time ]] && alias time="/usr/bin/time"
