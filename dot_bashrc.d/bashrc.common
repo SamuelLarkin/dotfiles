@@ -55,10 +55,10 @@ export LESSCHARSET=utf-8
 export LESS="--no-init --QUIET --RAW-CONTROL-CHARS --chop-long-lines --ignore-case --search-skip-screen"  # "-XQRSia"
 # If supported, change search result to black text on yellow background.
 # Looks like the feature was introduced in 581.
-man less | grep 'use-color' &> /dev/null && export LESS="$LESS --use-color --color=Sky"
+command -v man && man less | grep 'use-color' &> /dev/null && export LESS="$LESS --use-color --color=Sky"
 
 # FzF popup in tmux if suppported
-man tmux | grep --quiet display-popup && export FZF_TMUX_OPTS='-p80%,60%'
+command -v man && man tmux | grep --quiet display-popup && export FZF_TMUX_OPTS='-p80%,60%'
 
 
 # javac **/*.java
