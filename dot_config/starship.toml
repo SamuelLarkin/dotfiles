@@ -61,5 +61,11 @@ format = '[](fg:black bg:#eb9606)[$symbol$pyenv_prefix$version$virtualenv]($s
 [rust]
 format = '[\[$symbol($version)\]]($style)'
 
+[time]
+disabled = false
+format = "🕒 [$time]($style)"
+time_format = "%F:%T"
+style = "dimmed green"
+
 [username]
 format = '[$user]($style)@'
