@@ -84,7 +84,7 @@ command -v zoxide &> /dev/null && eval "$(zoxide init bash)"
 if command -v bat &> /dev/null; then
    # [Use `bat` to display man pages](https://github.com/sharkdp/bat#man)
    #command -v bat &> /dev/null && export MANPAGER="sh -c 'col --no-backspaces --spaces | bat --language man --plain'"
-   export MANPAGER="sh -c 'sed -u -e \"s/\\x1B\[[0-9;]*m//g; s/.\\x08//g\" | $HOME/.local/bin/bat --plain --language man'"
+   export MANPAGER="sh -c 'sed -u -e \"s/\\x1B\[[0-9;]*m//g; s/.\\x08//g\" | bat --plain --language man'"
 
    # [Using -S inside bat does not chop long lines](https://github.com/sharkdp/bat/issues/2869#issuecomment-2350936581)
    export BAT_OPTS='--wrap=never'
