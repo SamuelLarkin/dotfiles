@@ -211,6 +211,20 @@ local plugins = {
   },
 
   {
+    -- [github](https://github.com/MeanderingProgrammer/render-markdown.nvim)
+    -- Plugin to improve viewing Markdown files in Neovim
+    "MeanderingProgrammer/render-markdown.nvim",
+    enabled = false,
+  },
+
+  {
+    -- [github](https://github.com/iamcco/markdown-preview.nvim)
+    -- markdown preview plugin for (neo)vim
+    "iamcco/markdown-preview.nvim",
+    enabled = false,
+  },
+
+  {
     -- [github](https://github.com/stevearc/conform.nvim)
     -- Lightweight yet powerful formatter plugin for Neovim.
     "stevearc/conform.nvim",
