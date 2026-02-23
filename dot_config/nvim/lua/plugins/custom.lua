@@ -401,6 +401,21 @@ local plugins = {
       end,
     },
   },
+
+  {
+    -- Disable accepting completion using enter
+    "saghen/blink.cmp",
+    optional = true,
+    opts = {
+      completion = {
+        list = {
+          selection = {
+            preselect = false,
+          },
+        },
+      },
+    },
+  },
 }
 
 return plugins
