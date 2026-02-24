@@ -196,6 +196,7 @@ local plugins = {
         "shfmt",
         "sqlls",
         "stylua",
+        "ty",
         "vue-language-server",
         "yaml-language-server",
       },
