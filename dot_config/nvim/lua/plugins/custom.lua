@@ -381,6 +381,19 @@ local plugins = {
   },
 
   {
+    -- [github](https://github.com/hedyhli/outline.nvim)
+    -- Code outline sidebar powered by LSP. Significantly enhanced & refactored fork of symbols-outline.nvim.
+    "hedyhli/outline.nvim",
+    opts = {
+      outline_window = {
+        -- Auto close the outline window if goto_location is triggered and not for
+        -- peek_location
+        auto_close = true,
+      },
+    },
+  },
+
+  {
     -- [github](https://github.com/utilyre/barbecue.nvim)
     -- This is a VS Code like winbar that uses nvim-navic in order to get LSP context from your language server.
     -- Adds a bar at the top of the window like this:
