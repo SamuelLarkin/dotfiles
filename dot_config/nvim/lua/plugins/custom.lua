@@ -256,14 +256,6 @@ local plugins = {
   },
 
   {
-    "hrsh7th/nvim-cmp",
-    opts = function(_, opts)
-      -- [To remove the CR mapping, set the value of key "CR" to nil](https://github.com/LazyVim/LazyVim/discussions/2549#discussioncomment-8503533)
-      opts.mapping["<CR>"] = nil
-    end,
-  },
-
-  {
     -- [github](https://github.com/mfussenegger/nvim-lint)
     -- An asynchronous linter plugin for Neovim complementary to the built-in Language Server Protocol support.
     "mfussenegger/nvim-lint",
