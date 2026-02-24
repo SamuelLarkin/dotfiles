@@ -264,8 +264,9 @@ local plugins = {
       events = { "BufWritePost", "BufReadPost", "InsertLeave" },
       linters_by_ft = {
         fish = { "fish" },
-        python = { "ruff", "flake8", "mypy" },
         json = { "jq" },
+        markdown = { "markdownlint" },
+        python = { "ruff", "flake8", "mypy" },
         -- Use the "*" filetype to run linters on all filetypes.
         -- ['*'] = { 'global linter' },
         -- Use the "_" filetype to run linters on filetypes that don't have other linters configured.
@@ -285,6 +286,15 @@ local plugins = {
         -- },
       },
     },
+    config = function()
+      local markdownlint = require("lint").linters.markdownlint
+      -- Disable warnings about line been too long in markdown.
+      markdownlint.args = {
+        "--disable",
+        "MD013",
+        "--", -- Required
+      }
+    end,
   },
 
   {
