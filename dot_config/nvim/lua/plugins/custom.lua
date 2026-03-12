@@ -29,6 +29,11 @@ local plugins = {
         colors.hint = "#a64f11"
         colors.error = "#870d0d"
         colors.comment = "#45474e"
+        -- This is the color of the cutter
+        colors.git.add = "#FFFF00"
+        -- This is the color of the background
+        -- https://github.com/folke/tokyonight.nvim/blob/main/extras/lua/tokyonight_night.lua
+        colors.diff.add = "#16161e" -- same as bg_dark
       end,
     },
   },
