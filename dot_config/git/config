@@ -105,7 +105,7 @@
      | sed -e s/^\\*// \
      | xargs -t -n 1 git rebase --committer-date-is-author-date --onto $1 $2^; \
      }; f"
-    # Darlene's version doesn't work if you specify feature-a for example, it will only rebase feature-a.
+   # Darlene's version doesn't work if you specify feature-a for example, it will only rebase feature-a.
    rebase-tree-ds = "!f(){ \
      bp=$(git merge-base $1 $2); \
      git branch --contains $2 \
@@ -197,7 +197,7 @@
 [core]
    abbrev = 9
    attributesfile = ~/.config/git/attributes
-   autocrlf     = input
+   autocrlf = input
    editor = vim
    excludesfile = ~/.config/git/gitignore_global
 
