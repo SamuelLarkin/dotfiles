@@ -205,7 +205,7 @@
    helper = cache --timeout=3600
 
 [diff]
-   colorMoved = default
+   colorMoved = true
 
 [fetch]
    # Before fetching, remove any remote-tracking references that no longer
