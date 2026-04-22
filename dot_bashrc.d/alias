@@ -15,18 +15,22 @@ function sconnect {
   local -r jobid=${1:?JOBID?}
   shift
   declare -ar extra_args=(${@:-/bin/bash -l})
-  local -r ngpus=$(\squeue --noheader --states=R --Format=gres --jobs=$jobid | cut --fields=2-3 --delimiter=:)
+
+  local -r ngpus=$(\squeue --noheader --states=R --Format=gres --jobs=$jobid)
+  if [[ "$ngpus" =~ gres:gpu ]]; then
+    local -r gres="--gres=${ngpus#*:}"
+  fi
 
   srun \
-  --overlap \
-  --oversubscribe \
-  --pty \
-  --gres=$ngpus \
-  --nodes=1 \
-  --ntasks=1 \
-  --mem-per-cpu=0 \
-  --jobid=$jobid \
-  "${extra_args[@]}"
+    --overlap \
+    --oversubscribe \
+    --pty \
+    --nodes=1 \
+    --ntasks=1 \
+    --mem-per-cpu=0 \
+    --jobid=$jobid \
+    $gres \
+    "${extra_args[@]}"
 }
 
 
