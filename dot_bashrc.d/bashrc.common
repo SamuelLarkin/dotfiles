@@ -46,6 +46,7 @@ export HISTSIZE=100000   # HISTSIZE variable is the maximum number of lines of h
 export HISTTIMEFORMAT="%F %T "
 
 export DOCKER_BUILDKIT=1
+# This breaks containers running nginx
 export PODMAN_USERNS=keep-id
 
 # tqdm outputs too much data to log files rendering them unreadable.
