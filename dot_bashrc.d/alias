@@ -33,6 +33,16 @@ function sconnect {
     "${extra_args[@]}"
 }
 
+# alias taski="task --list | sed 's/^\* //;  s/:[ \t]\+/\t/' | fzf --preview='cut -f 2  <<< {}' --delimiter '\t' --with-nth 1 --nth 1 --multi --accept-nth 1 | xargs --no-run-if-empty task"
+function taski {
+  declare -ar extra_args=("$@")
+
+  command task --list \
+  | sed 's/^\* //;  s/:[ \t]\+/\t/' \
+  | fzf --preview='cut -f 2  <<< {}' --delimiter '\t' --with-nth 1 --nth 1 --multi --accept-nth 1 \
+  | xargs --no-run-if-empty task "${extra_args[@]}"
+}
+
 
 [[ -x /usr/bin/time ]] && alias time="/usr/bin/time"
 
