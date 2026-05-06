@@ -71,7 +71,7 @@ shopt -s direxpand
 # Enable github completions
 command -v gh &> /dev/null && eval "$(gh completion  --shell bash)"
 
-# Enable starship completions
+# Enable starship prompt
 command -v starship &> /dev/null && eval "$(starship init bash)"
 
 # Enable yq completions
