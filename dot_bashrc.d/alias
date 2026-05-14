@@ -33,6 +33,15 @@ function sconnect {
     $gres \
     "${extra_args[@]}"
 }
+function scanceli {
+  squeue --noheader --sort=ti --format=$'%i %18V %.10M %15j %k' --user=$USER --states=R \
+  | sed -E 's|cn\[([0-9]+)[^ ]*\]|cn\1      |g; s|  *$||' \
+  | fzf \
+      --preview-window=top:80% \
+      --preview='scontrol show jobid --details $(cut -f 1 -d " " <<< {})' \
+  | cut -f1 -d ' ' \
+  | xargs --no-run-if-empty scancel
+}
 
 # alias taski="task --list | sed 's/^\* //;  s/:[ \t]\+/\t/' | fzf --preview='cut -f 2  <<< {}' --delimiter '\t' --with-nth 1 --nth 1 --multi --accept-nth 1 | xargs --no-run-if-empty task"
 function taski {
