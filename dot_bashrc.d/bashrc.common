@@ -47,7 +47,7 @@ export HISTTIMEFORMAT="%F %T "
 
 export DOCKER_BUILDKIT=1
 # This breaks containers running nginx
-export PODMAN_USERNS=keep-id
+#export PODMAN_USERNS=keep-id
 
 # tqdm outputs too much data to log files rendering them unreadable.
 ! shopt -q login_shell && export TQDM_MININTERVAL=60
