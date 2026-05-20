@@ -76,8 +76,8 @@
   i (unicode r#")"#)
   j (unicode r#"{"#)
   k (unicode r#"}"#)
-  m [
-  , ]
+  m (unicode r#"["#)
+  , (unicode r#"]"#)
 )
 
 (deflayermap (enterDeleteBS)
