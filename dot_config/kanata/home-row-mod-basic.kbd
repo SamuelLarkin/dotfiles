@@ -81,7 +81,9 @@
 )
 
 (deflayermap (enterDeleteBS)
-  u bspc
-  j ret
-  m del
+  h esc
+  j bspc
+  k ret
+  l del
+  ; tab
 )
