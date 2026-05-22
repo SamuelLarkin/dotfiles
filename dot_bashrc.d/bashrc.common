@@ -45,6 +45,8 @@ export HISTFILESIZE=100000   # HISTFILESIZE variable controls the maximum number
 export HISTSIZE=100000   # HISTSIZE variable is the maximum number of lines of history that we can store in memory.
 export HISTTIMEFORMAT="%F %T "
 
+export UV_MANAGED_PYTHON=true
+
 export DOCKER_BUILDKIT=1
 # This breaks containers running nginx
 #export PODMAN_USERNS=keep-id
