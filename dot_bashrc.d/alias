@@ -91,7 +91,6 @@ alias rsync='time rsync --progress --exclude=.\*.swp --stats'
 alias ssh="ssh -A -X"
 alias sshFix="source ~/.ssh/fixSSH"
 alias tiga='tig --all'
-alias uv='uv --relocatable'
 alias viewdiff='vim -d -R'
 alias viewpar='vim -R -O +":windo :set scrollbind nowrap"'
 alias vimpar='vim -O +":windo :set scrollbind nowrap"'
