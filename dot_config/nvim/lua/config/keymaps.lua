@@ -7,6 +7,7 @@ vim.keymap.del("n", "Y")
 -- https://www.youtube.com/watch?v=DYaTzkw3zqQ
 if vim.lsp.inlay_hint then
   vim.keymap.set("n", "<leader>uh", function()
-    vim.lsp.inlay_hint(0, nil)
+    -- vim.lsp.inlay_hint(0, nil)
+    vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
   end, { desc = "Toggle inlay hints" })
 end
