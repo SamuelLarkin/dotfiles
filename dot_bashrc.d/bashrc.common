@@ -59,9 +59,6 @@ export LESS="--no-init --QUIET --RAW-CONTROL-CHARS --chop-long-lines --ignore-ca
 # Looks like the feature was introduced in 581.
 command -v man &> /dev/null && man less | grep 'use-color' &> /dev/null && export LESS="$LESS --use-color --color=Sky"
 
-# FzF popup in tmux if suppported
-command -v man &> /dev/null && man tmux | grep --quiet display-popup && export FZF_TMUX_OPTS='-p80%,60%'
-
 
 # javac **/*.java
 shopt -s globstar
@@ -69,23 +66,23 @@ shopt -s globstar
 # STOP FUCKING ESCAPING when tab
 shopt -s direxpand
 
+# Enable chezmoi completions
+command -v chezmoi %> /dev/null && eval "$(chezmoi completion bash)"
+
 # Enable github completions
 command -v gh &> /dev/null && eval "$(gh completion  --shell bash)"
 
 # Enable starship prompt
 command -v starship &> /dev/null && eval "$(starship init bash)"
 
+# Enable task completions
+command -v task &> /dev/null && eval "$(task --completion bash)"
+
 # Enable yq completions
 command -v yq &> /dev/null && eval "$(yq shell-completion bash)"
 
 # Enable zoxide completions
 command -v zoxide &> /dev/null && eval "$(zoxide init bash)"
-
-# Enable task completions
-command -v task &> /dev/null && eval "$(task --completion bash)"
-
-# Enable chezmoi completions
-command -v chezmoi &> /dev/null && eval "$(chezmoi completion bash)"
 
 # bat
 # [Why use command instead of which](https://stackoverflow.com/a/677212)
@@ -108,6 +105,10 @@ if [[ -z "$SLURM_JOB_ID" ]]; then
   if command -v fzf &> /dev/null; then
     # Enable fzf completion and key-bindings.
     fzf --bash &> /dev/null && eval "$(fzf --bash)"
+
+    # FzF popup in tmux if suppported
+    # TODO: only set FZF_TMUX_OPTS if tmux's version is <3.3.
+    command -v man &> /dev/null && man tmux | grep --quiet display-popup && export FZF_TMUX_OPTS='-p80%,60%'
 
     # [fzf Web Color Picker](https://minsw.github.io/fzf-color-picker/)
     declare -a FZF_COLORS=(
