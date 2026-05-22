@@ -31,9 +31,9 @@ vim.api.nvim_create_autocmd("FileType", {
 -- [disabled autoformat for bash files](https://github.com/LazyVim/LazyVim/discussions/4792#discussioncomment-11260090)
 -- We can trigger formatting using `<leader>uF` or do a one time formatting using `<leader>cf`.
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = "sh",
-  group = vim.api.nvim_create_augroup("bash_no_format", {}),
   desc = "Disable formatting for bash",
+  group = vim.api.nvim_create_augroup("bash_no_format", {}),
+  pattern = "sh",
   callback = function()
     vim.b.autoformat = false
   end,
