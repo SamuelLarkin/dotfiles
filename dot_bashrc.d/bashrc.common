@@ -72,7 +72,7 @@ shopt -s direxpand
 command -v chezmoi %> /dev/null && eval "$(chezmoi completion bash)"
 
 # Enable github completions
-command -v gh &> /dev/null && eval "$(gh completion  --shell bash)"
+command -v gh &> /dev/null && eval "$(gh completion --shell bash)"
 
 # Enable starship prompt
 command -v starship &> /dev/null && eval "$(starship init bash)"
