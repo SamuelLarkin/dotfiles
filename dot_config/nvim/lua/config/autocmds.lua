@@ -38,3 +38,15 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.b.autoformat = false
   end,
 })
+
+-- -- [Hide Barbecue](https://github.com/utilyre/barbecue.nvim?tab=readme-ov-file#api)
+-- -- The Barbecue winbar is quite annoying as it screws up the alignment.
+-- -- Let's disable it when diffing.
+-- vim.api.nvim_create_autocmd("DiffUpdated", {
+--   desc = "Hide Barbecue when diffing"
+--   group = vim.api.nvim_create_augroup("HideBarbecueWhenDiffing", { clear = true }),
+--   pattern = "*",
+--   callback = function()
+--     require("barbecue.ui").toggle(false)
+--   end,
+-- })
