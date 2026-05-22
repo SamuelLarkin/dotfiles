@@ -64,7 +64,7 @@ format = '[\[$symbol($version)\]]($style)'
 [time]
 disabled = false
 format = "🕒 [$time]($style)"
-time_format = "%F:%T"
+time_format = "%F_%T"
 style = "dimmed green"
 
 [username]
