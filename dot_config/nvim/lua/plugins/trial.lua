@@ -331,6 +331,19 @@ local plugins = {
   },
 
   {
+    -- [github](https://github.com/mtrajano/tssorter.nvim?tab=readme-ov-file)
+    -- Sort almost anything in neovim using treesitter.
+    "mtrajano/tssorter.nvim",
+    version = "*", -- latest stable version, use `main` to keep up with the latest changes
+    ---@module "tssorter"
+    ---@type TssorterOpts
+    opts = {
+      -- leave empty for the default config or define your own sortables in here. They will add, rather than
+      -- replace, the defaults for the given filetype
+    },
+  },
+
+  {
     "snacks.nvim",
     opts = {
       scroll = { enabled = false },
