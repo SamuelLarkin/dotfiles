@@ -78,6 +78,9 @@ command -v starship &> /dev/null && eval "$(starship init bash)"
 # Enable task completions
 command -v task &> /dev/null && eval "$(task --completion bash)"
 
+# Enable uv completions
+command -v uv &> /dev/null && eval "$(uv generate-shell-completion bash)"
+
 # Enable yq completions
 command -v yq &> /dev/null && eval "$(yq shell-completion bash)"
 
