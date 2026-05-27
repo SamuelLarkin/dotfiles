@@ -1,5 +1,6 @@
 # vim:filetype=bash:
 # jq(1) completion                                         -*- shell-script -*-
+# [source](/usr/share/bash-completion/completions/jq)
 
 _jq()
 {
