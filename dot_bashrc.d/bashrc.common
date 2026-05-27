@@ -69,7 +69,7 @@ shopt -s globstar
 shopt -s direxpand
 
 # Enable chezmoi completions
-command -v chezmoi %> /dev/null && eval "$(chezmoi completion bash)"
+command -v chezmoi &> /dev/null && eval "$(chezmoi completion bash)"
 
 # Enable github completions
 command -v gh &> /dev/null && eval "$(gh completion --shell bash)"
