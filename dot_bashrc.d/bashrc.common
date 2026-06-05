@@ -49,6 +49,9 @@ export UV_MANAGED_PYTHON=true
 
 export DFT_DISPLAY=side-by-side-show-both
 
+export SBATCH_OPEN_MODE=append
+export SBATCH_OUTPUT="%x-%j.out"
+
 export DOCKER_BUILDKIT=1
 # This breaks containers running nginx
 #export PODMAN_USERNS=keep-id
