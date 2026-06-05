@@ -47,6 +47,8 @@ export HISTTIMEFORMAT="%F %T "
 
 export UV_MANAGED_PYTHON=true
 
+export DFT_DISPLAY=side-by-side-show-both
+
 export DOCKER_BUILDKIT=1
 # This breaks containers running nginx
 #export PODMAN_USERNS=keep-id
