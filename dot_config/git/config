@@ -227,7 +227,7 @@
 
 [log]
    abbrevCommit = true
-   date         = short
+   date         = "format:%F_%T"
    decorate     = true
 
 [merge]
