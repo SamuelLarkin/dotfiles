@@ -79,6 +79,9 @@ command -v chezmoi &> /dev/null && eval "$(chezmoi completion bash)"
 # Enable github completions
 command -v gh &> /dev/null && eval "$(gh completion --shell bash)"
 
+# Enable miller completions
+command -v mlr &> /dev/null && eval "$(mlr completion bash)"
+
 # Enable starship prompt
 command -v starship &> /dev/null && eval "$(starship init bash)"
 
