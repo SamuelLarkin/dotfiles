@@ -49,8 +49,11 @@ export UV_MANAGED_PYTHON=true
 
 export DFT_DISPLAY=side-by-side-show-both
 
+# SLURM
 export SBATCH_OPEN_MODE=append
 export SBATCH_OUTPUT="%x-%j.out"
+export SBATCH_REQUEUE=1
+export SBATCH_SIGNAL="B:USR1@30"
 
 export DOCKER_BUILDKIT=1
 # This breaks containers running nginx
