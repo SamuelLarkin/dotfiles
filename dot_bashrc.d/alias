@@ -94,6 +94,7 @@ alias tiga='tig --all'
 alias viewdiff='vim -d -R'
 alias viewpar='vim -R -O +":windo :set scrollbind nowrap"'
 alias vimpar='vim -O +":windo :set scrollbind nowrap"'
+alias watch='watch --differences'
 alias wc='wc --lines'
 alias wdiff="wdiff --avoid-wraps  --start-delete=$'\033[30;41m'  --end-delete=$'\033[0m'  --start-insert=$'\033[30;42m'  --end-insert=$'\033[0m'"
 alias xargs='xargs --no-run-if-empty'
