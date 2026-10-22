@@ -1,0 +1,17 @@
+{
+  "miller header": {
+    "prefix": "header",
+    "body": [
+      "#!/usr/bin/env -S mlr -s",
+      "# -S, --split-string=S",
+      "# -s {file name} Take command-line flags from file name. For more",
+      "#                information please see",
+      "#                https://miller.readthedocs.io/en/latest/scripting/.",
+      "",
+      "--ijsonl --otsv",
+      "cat",
+      "$0"
+    ],
+    "description": "Insert miller inline script header"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "name": "my-snippets",
+  "contributions": {
+    "snippets": {
+      "mlr": [
+        "miller.json"
+      ]
+    }
+  }
+}
