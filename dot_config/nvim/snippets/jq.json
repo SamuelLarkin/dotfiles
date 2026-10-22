@@ -1,0 +1,12 @@
+{
+  "jq header": {
+    "prefix": "header",
+    "body": [
+      "#!/usr/bin/env -S jq --monochrome-output --compact-output --from-file",
+      "# -S, --split-string=S",
+      "",
+      "$0"
+    ],
+    "description": "Insert jq inline script header"
+  }
+}

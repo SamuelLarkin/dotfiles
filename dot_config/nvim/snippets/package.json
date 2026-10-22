@@ -5,6 +5,9 @@
       "python": [
         "python.json"
       ],
+      "jq": [
+        "jq.json"
+      ],
       "mlr": [
         "miller.json"
       ]
