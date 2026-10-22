@@ -2,6 +2,9 @@
   "name": "my-snippets",
   "contributions": {
     "snippets": {
+      "python": [
+        "python.json"
+      ],
       "mlr": [
         "miller.json"
       ]

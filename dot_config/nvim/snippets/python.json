@@ -1,0 +1,28 @@
+{
+  "PEP 723 Inline Script": {
+    "prefix": "header_pep723",
+    "body": [
+      "#!/usr/bin/env  python3",
+      "# /// script",
+      "# requires-python = \">=3.13\"",
+      "# dependencies = [",
+      "#   \"$0\"",
+      "# ]",
+      "# ///"
+    ],
+    "description": "Insert PEP 723 inline script metadata header"
+  },
+  "uv PEP 723 Inline Script": {
+    "prefix": "header_uvpep723",
+    "body": [
+      "#!/usr/bin/env -S uv run --script",
+      "# /// script",
+      "# requires-python = \">=3.13\"",
+      "# dependencies = [",
+      "#   \"$0\"",
+      "# ]",
+      "# ///"
+    ],
+    "description": "Insert PEP 723 inline script metadata header"
+  }
+}
